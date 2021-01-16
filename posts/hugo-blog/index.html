@@ -237,8 +237,6 @@ Press Ctrl+C to stop
 </li>
 <li>
 <p>把建立好的 <code>&lt;USERNAME&gt;.github.io</code> repo，透過 <code>git submodule</code> 來加入模組</p>
-</li>
-</ol>
 <blockquote>
 <p>如果已經存在 <code>public</code> 目錄的話，需要先把它刪除 <code>rm -rf public</code></p>
 </blockquote>
@@ -249,8 +247,10 @@ Press Ctrl+C to stop
 <span style="color:#6272a4"># output</span>
 <span style="color:#6272a4"># 360acf1b71db6fa3f500161d1f0e8e8d345499a2 public (heads/main) // 指向 `&lt;USERNAME&gt;.github.io` repo</span>
 <span style="color:#6272a4"># dbe21a7fdf0d5556de5b2f2f8bdf4f64228ca241 themes ... // 指向 theme 的 repo</span>
-</code></pre></div><ol start="3">
-<li>執行 <code>hugo</code> 指令在 <code>public</code> 產生靜態網站，確認 <code>config.toml</code> 的 <code>baseURL</code> 是否有指向正確的網域位置 <code>&lt;USERNAME&gt;.github.io</code></li>
+</code></pre></div></li>
+<li>
+<p>執行 <code>hugo</code> 指令在 <code>public</code> 產生靜態網站，確認 <code>config.toml</code> 的 <code>baseURL</code> 是否有指向正確的網域位置 <code>&lt;USERNAME&gt;.github.io</code></p>
+</li>
 </ol>
 <h2 id="寫-script-來自動化執行更新">寫 script 來自動化執行更新</h2>
 <p>直接在專案內建立一支 <code>deploy.sh</code> 的 script，把權限設定為可執行權限 <code>chmod +x deploy.sh</code></p>
