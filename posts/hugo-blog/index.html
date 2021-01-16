@@ -13,7 +13,7 @@ brew install hugo hugo version # 確認版本 Step 2: 建立一個新的網站 h
 cd sitename git init git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke Step 4: 開始我們第一篇文章 Hugo 提供指令可以直接產生一篇文章框架
 hugo new posts/my-first-post.md 範例：
 --- title: &#34;My First Post&#34; date: 2021-01-16T09:56:12&#43;08:00 draft: true --- Step 5: 啟動 Hugo server 直接在本地端啟動 server 來看成果如何">
-    <meta name="keywords" content="blog,developer,personal">
+    <meta name="keywords" content="blog,developer,personal,ios">
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用 hugo 來建立部落格"/>
@@ -114,19 +114,11 @@ hugo new posts/my-first-post.md 範例：
         
           
             <li class="navigation-item">
-              <a class="navigation-link" href="/about/">About</a>
+              <a class="navigation-link" href="/">About</a>
             </li>
           
             <li class="navigation-item">
               <a class="navigation-link" href="/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/projects/">Projects</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/contact/">Contact me</a>
             </li>
           
         
@@ -160,7 +152,12 @@ hugo new posts/my-first-post.md 範例：
           </div>
           
           
-          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="/tags/golang/">golang</a>
+      <span class="separator">•</span>
+    <a href="/tags/hugo/">hugo</a></div>
+
         </div>
       </header>
 

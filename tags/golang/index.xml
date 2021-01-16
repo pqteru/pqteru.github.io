@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang on InstaCoding</title>
+    <link>https://pqteru.github.io/tags/golang/</link>
+    <description>Recent content in golang on InstaCoding</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 08 Jan 2021 18:29:01 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 hugo 來建立部落格</title>
+      <link>https://pqteru.github.io/posts/hugo-blog/</link>
+      <pubDate>Fri, 08 Jan 2021 18:29:01 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/hugo-blog/</guid>
+      <description>hugo 是 golang 寫的一個部落格框架，支援 markdown 語法，透過生成靜態網頁，靜態網頁可以快速的透過瀏覽器下載並呈現，大幅提升讀取速速，現在就來教學如何建立一個 Hugo 的部落格
+安裝 Installation Step 1: 安裝 Hugo 如果是 mac 的使用者，可以透過 homebrew 來安裝 hugo
+brew install hugo hugo version # 確認版本 Step 2: 建立一個新的網站 hugo new site sitename # 替代 sitename 為自己想要的名字 Step 3: 加入一個 theme Hugo 可以客製自己想要的版型，這邊有非常多的版型可以挑選，找到喜歡的版型之後可以透過 git submodule 來加入版型的模組，若之後有更新的版本可以直接透過 submodule 來 update 版本
+cd sitename git init git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke Step 4: 開始我們第一篇文章 Hugo 提供指令可以直接產生一篇文章框架
+hugo new posts/my-first-post.md 範例：
+--- title: &amp;#34;My First Post&amp;#34; date: 2021-01-16T09:56:12+08:00 draft: true --- Step 5: 啟動 Hugo server 直接在本地端啟動 server 來看成果如何</description>
+    </item>
+    
+  </channel>
+</rss>
