@@ -192,8 +192,9 @@ c.maxTemp = <span style="color:#bd93f9">15</span>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">d</span> = c <span style="color:#6272a4">// 指向 c</span>
 d.minTemp = <span style="color:#bd93f9">13</span>
 </code></pre></div><p>output:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ff79c6">(</span>lldb<span style="color:#ff79c6">)</span>po c
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ff79c6">(</span>lldb<span style="color:#ff79c6">)</span> po c
 &lt;CWeather: 0x600001367240&gt; <span style="color:#6272a4"># class instance 被配置到參照位址中</span>
+
 <span style="color:#ff79c6">(</span>lldb<span style="color:#ff79c6">)</span> po c.minTemp
 13.0 <span style="color:#6272a4"># c instance 的 minTemp 也被改為 13</span>
 
