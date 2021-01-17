@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swift on InstaCoding</title>
+    <link>https://pqteru.github.io/tags/swift/</link>
+    <description>Recent content in swift on InstaCoding</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 17 Jan 2021 09:37:34 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Struct vs Class in Swift</title>
+      <link>https://pqteru.github.io/posts/struct_vs_class_in_swift/</link>
+      <pubDate>Sun, 17 Jan 2021 09:37:34 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/struct_vs_class_in_swift/</guid>
+      <description>Structures struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
+struct SWeather { var location: String var minTemp: Double var maxTemp: Double } let s = SWeather(location: &amp;#34;Taipei&amp;#34;, minTemp: 12, maxTemp: 15) 接著定義一個 ss 來 assign to s
+var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:</description>
+    </item>
+    
+  </channel>
+</rss>
