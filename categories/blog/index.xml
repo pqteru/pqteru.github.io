@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>golang on InstaCoding</title>
-    <link>https://pqteru.github.io/tags/golang/</link>
-    <description>Recent content in golang on InstaCoding</description>
+    <title>blog on InstaCoding</title>
+    <link>https://pqteru.github.io/categories/blog/</link>
+    <description>Recent content in blog on InstaCoding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 08 Jan 2021 18:29:01 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Jan 2021 18:29:01 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 hugo 來建立部落格</title>
       <link>https://pqteru.github.io/posts/2021-01-08-hugo-blog/</link>

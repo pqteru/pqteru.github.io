@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="pqteru">
+    <meta name="description" content="Structures struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
+struct SWeather { var location: String var minTemp: Double var maxTemp: Double } let s = SWeather(location: &#34;Taipei&#34;, minTemp: 12, maxTemp: 15) 接著定義一個 ss 來 assign to s
+var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:">
+    <meta name="keywords" content="blog,developer,personal,ios">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Struct vs Class in Swift"/>
+<meta name="twitter:description" content="Structures struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
+struct SWeather { var location: String var minTemp: Double var maxTemp: Double } let s = SWeather(location: &#34;Taipei&#34;, minTemp: 12, maxTemp: 15) 接著定義一個 ss 來 assign to s
+var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:"/>
+
+    <meta property="og:title" content="Struct vs Class in Swift" />
+<meta property="og:description" content="Structures struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
+struct SWeather { var location: String var minTemp: Double var maxTemp: Double } let s = SWeather(location: &#34;Taipei&#34;, minTemp: 12, maxTemp: 15) 接著定義一個 ss 來 assign to s
+var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pqteru.github.io/posts/2021-01-17-struct-vs-class-in-swift/" />
+<meta property="article:published_time" content="2021-01-17T09:37:34+08:00" />
+<meta property="article:modified_time" content="2021-01-17T09:37:34+08:00" />
+
+
+    <title>
+  Struct vs Class in Swift · InstaCoding
+</title>
+
+    
+      <link rel="canonical" href="https://pqteru.github.io/posts/2021-01-17-struct-vs-class-in-swift/">
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    
+      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
+        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      InstaCoding
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Struct vs Class in Swift</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-01-17T09:37:34&#43;08:00'>
+                January 17, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/swift/">swift</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="/tags/swift/">swift</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="structures">Structures</h2>
+<p><code>struct</code> 跟 <code>enum</code> 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">SWeather</span> {
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">location</span>: <span style="color:#8be9fd;font-style:italic">String</span>
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">minTemp</span>: <span style="color:#8be9fd;font-style:italic">Double</span>
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">maxTemp</span>: <span style="color:#8be9fd;font-style:italic">Double</span>
+}
+
+<span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">s</span> = SWeather(location: <span style="color:#f1fa8c">&#34;Taipei&#34;</span>, minTemp: <span style="color:#bd93f9">12</span>, maxTemp: <span style="color:#bd93f9">15</span>)
+</code></pre></div><p>接著定義一個 <code>ss</code> 來 assign to <code>s</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">var <span style="color:#8be9fd;font-style:italic">ss</span> <span style="color:#ff79c6">=</span> s
+ss.minTemp <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span> <span style="color:#6272a4"># 設 minTemp 為 10</span>
+</code></pre></div><p>output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ff79c6">(</span>lldb<span style="color:#ff79c6">)</span> po s
+▿ SWeather
+  - location : <span style="color:#f1fa8c">&#34;Taipei&#34;</span>
+  - minTemp : 12.0 <span style="color:#6272a4"># s 的 minTemp 不會改變，因為做 assignment 時是複製一份相同的數值到 ss</span>
+  - maxTemp : 15.0
+
+<span style="color:#ff79c6">(</span>lldb<span style="color:#ff79c6">)</span> po ss
+▿ SWeather
+  - location : <span style="color:#f1fa8c">&#34;Taipei&#34;</span>
+  - minTemp : 10.0 <span style="color:#6272a4"># ss 的 minTemp 已變為 10</span>
+  - maxTemp : 15.0
+</code></pre></div><h2 id="classes">Classes</h2>
+<p><code>class</code> 是 reference type instance, 不同於 structures，當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，會儲存一個參考位址 reference 到同一個實例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">CWeather</span> {
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">location</span>: <span style="color:#8be9fd;font-style:italic">String</span>?
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">minTemp</span>: <span style="color:#8be9fd;font-style:italic">Double</span> = <span style="color:#bd93f9">0</span>
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">maxTemp</span>: <span style="color:#8be9fd;font-style:italic">Double</span> = <span style="color:#bd93f9">0</span>
+}
+
+<span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">c</span> = CWeather()
+c.location = <span style="color:#f1fa8c">&#34;Taipei&#34;</span>
+c.minTemp = <span style="color:#bd93f9">12</span>
+c.maxTemp = <span style="color:#bd93f9">15</span>
+</code></pre></div><p>定義一個 <code>d</code> 並指到 <code>c</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">d</span> = c <span style="color:#6272a4">// 指向 c</span>
+d.minTemp = <span style="color:#bd93f9">13</span>
+</code></pre></div><p>output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ff79c6">(</span>lldb<span style="color:#ff79c6">)</span> po c
+&lt;CWeather: 0x600001367240&gt; <span style="color:#6272a4"># class instance 被配置到參照位址中</span>
+
+<span style="color:#ff79c6">(</span>lldb<span style="color:#ff79c6">)</span> po c.minTemp
+13.0 <span style="color:#6272a4"># c instance 的 minTemp 也被改為 13</span>
+
+<span style="color:#ff79c6">(</span>lldb<span style="color:#ff79c6">)</span> po d.minTemp
+13.0
+</code></pre></div><h3 id="相同的地方">相同的地方</h3>
+<ul>
+<li>可定義 property 並保存值</li>
+<li>可定義 methods</li>
+<li>可自定義 subscripts 捷徑來存取 collection, list or sequence 的 member</li>
+<li>可自定義 initializers</li>
+<li>可使用 extension 來延伸功能性</li>
+<li>可遵從 Protocols</li>
+</ul>
+<h3 id="不同的地方">不同的地方</h3>
+<p>Classes 還可以做到</p>
+<ul>
+<li>繼承</li>
+<li>可在 runtime 作類型轉換(Type casting)</li>
+<li>Deinitializers 可以釋放記憶體空間</li>
+<li>Reference count</li>
+</ul>
+<p>Classes 雖然提供更多的功能與彈性但相對的也提升了程式的複雜度，若在一般使用情境下，建議使用 structures 跟 enumerations 來定義，可以減少擔心 memory leaks 或多緒執行下可能造成的 data racing (access/modify)，而在適當的時機或需要時才使用 classes 來定義。</p>
+<h2 id="使用情境">使用情境</h2>
+<p>使用 <code>struct</code> 的情境：</p>
+<ul>
+<li>預設的建模方式，適用在大部分情況</li>
+<li>透過 Protocols 為繼承和共享行為建模 (Protocols Oriented Programming)</li>
+<li>不需要辨識不同 identity 時</li>
+</ul>
+<p>使用 <code>class</code> 的情境：</p>
+<ul>
+<li>需與 Objective-C 做互通</li>
+<li>需要辨識不同的身份時，假設兩個 instances 有相同的 value 但可使用 <code>===</code> 來分辨不同的 identity</li>
+<li>不需要 Copying or comparing instances (e.g., <code>Window</code>)</li>
+<li>實例的 lifetime 與外部影響有關 (e.g., <code>TemporaryFile</code>)</li>
+<li>實例只是&quot;接收器&quot; 指向外部狀態的 write-only 管道 (e.g. <code>CGContext</code>)</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html">ClassesAndStructures - Swift.org</a></li>
+<li><a href="https://developer.apple.com/documentation/swift/choosing_between_structures_and_classes">Choosing Between Structures and Classes - Apple developer</a></li>
+<li><a href="https://stackoverflow.com/questions/24232799/why-choose-struct-over-class?noredirect=1&amp;lq=1">Why Choose Struct Over Class? - Stackoverflow</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "instacoding" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2021
+         pqteru 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-39516340-6', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>
