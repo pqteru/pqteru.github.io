@@ -132,7 +132,7 @@
             </span>
             <span class="reading-time">
               <i class="fa fa-clock-o" aria-hidden="true"></i>
-              2-minute read
+              3-minute read
             </span>
           </div>
           
@@ -230,24 +230,40 @@ print(<span style="color:#f1fa8c">&#34;p.bmi: </span><span style="color:#f1fa8c"
 </ul>
 <p>Example:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">Person</span> {
-    ...
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">weight</span>: <span style="color:#8be9fd;font-style:italic">Double</span> <span style="color:#6272a4">// kg</span>
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">height</span>: <span style="color:#8be9fd;font-style:italic">Double</span> <span style="color:#6272a4">// cm</span>
+    <span style="color:#ff79c6">lazy</span> <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">name</span>: <span style="color:#8be9fd;font-style:italic">String</span> = {
+       <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Joe&#34;</span>
+    }()
+    <span style="color:#6272a4">// 如果只有 getter 的話 get{} 可以省略</span>
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">bmi</span>: <span style="color:#8be9fd;font-style:italic">Double</span> {
+        <span style="color:#6272a4">// 把公分轉成公尺</span>
+        <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">m</span> = height <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">100</span>
+        <span style="color:#ff79c6">return</span> round(<span style="color:#bd93f9">1000</span> <span style="color:#ff79c6">*</span> (weight <span style="color:#ff79c6">/</span> (m <span style="color:#ff79c6">*</span> m))) <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">1000</span>
+    }
+    <span style="color:#6272a4">// 減重計畫</span>
     <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">lossWeight</span>: <span style="color:#8be9fd;font-style:italic">Double</span> = <span style="color:#bd93f9">0</span> {
         <span style="color:#ff79c6">willSet</span>(newValue) {
             print(<span style="color:#f1fa8c">&#34;將減重 </span><span style="color:#f1fa8c">\(</span>newValue<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c"> 公斤&#34;</span>)
         }
         <span style="color:#ff79c6">didSet</span> {
             print(<span style="color:#f1fa8c">&#34;總共減重 </span><span style="color:#f1fa8c">\(</span>lossWeight <span style="color:#ff79c6">+</span> oldValue<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c"> 公斤&#34;</span>)
+            weight <span style="color:#ff79c6">-=</span> lossWeight
         }
     }
 }
 
 <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">p</span> = Person(weight: <span style="color:#bd93f9">70</span>, height: <span style="color:#bd93f9">170</span>)
+print(<span style="color:#f1fa8c">&#34;減重前的 bmi: </span><span style="color:#f1fa8c">\(</span>p.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>)
+<span style="color:#6272a4">// 減重前的 bmi: 24.221</span>
 p.lossWeight = <span style="color:#bd93f9">3</span>
 <span style="color:#6272a4">// 將減重 3.0 公斤</span>
 <span style="color:#6272a4">// 總共減重 3.0 公斤</span>
 p.lossWeight = <span style="color:#bd93f9">5</span>
 <span style="color:#6272a4">// 將減重 5.0 公斤</span>
 <span style="color:#6272a4">// 總共減重 8.0 公斤</span>
+print(<span style="color:#f1fa8c">&#34;減重後的 bmi: </span><span style="color:#f1fa8c">\(</span>p.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>)
+<span style="color:#6272a4">// 減重後的 bmi: 21.453</span>
 </code></pre></div><h2 id="references">References</h2>
 <ul>
 <li><a href="https://docs.swift.org/swift-book/LanguageGuide/Properties.html">Properties - Swift.org</a></li>
