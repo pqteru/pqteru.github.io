@@ -132,7 +132,7 @@
             </span>
             <span class="reading-time">
               <i class="fa fa-clock-o" aria-hidden="true"></i>
-              3-minute read
+              4-minute read
             </span>
           </div>
           
@@ -264,6 +264,96 @@ p.lossWeight = <span style="color:#bd93f9">5</span>
 <span style="color:#6272a4">// 總共減重 8.0 公斤</span>
 print(<span style="color:#f1fa8c">&#34;減重後的 bmi: </span><span style="color:#f1fa8c">\(</span>p.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>)
 <span style="color:#6272a4">// 減重後的 bmi: 21.453</span>
+</code></pre></div><h2 id="property-wrapper">Property Wrapper</h2>
+<p>Wrapper 是一個提供可自定義和保存 property 方式的語法糖，方便使用並減少代碼的重複</p>
+<ul>
+<li>使用 <code>@propertyWrapper</code> keyword</li>
+<li><code>class</code>, <code>struct</code> 跟 <code>enum</code> 皆可以定義</li>
+<li>需定義一個 non-static <code>wrappedValue</code> 的 property</li>
+</ul>
+<p>直接看範例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">@propertyWrapper
+<span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">StandardBmi</span> {
+    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">bmi</span>: <span style="color:#8be9fd;font-style:italic">Double</span>
+    <span style="color:#6272a4">// 需定義 wrappedValue</span>
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">wrappedValue</span>: <span style="color:#8be9fd;font-style:italic">Double</span> {
+        <span style="color:#ff79c6">get</span> { <span style="color:#ff79c6">return</span> bmi }
+        <span style="color:#6272a4">// 標準 BMI 的範圍為 18.5 &lt;= bmi &lt; 24 之間</span>
+        <span style="color:#ff79c6">set</span> { bmi = <span style="color:#bd93f9">18.5</span>..&lt;<span style="color:#bd93f9">24</span> <span style="color:#ff79c6">~=</span> newValue ? newValue : <span style="color:#bd93f9">0</span> }
+    }
+    <span style="color:#8be9fd;font-style:italic">init</span>() { <span style="color:#ff79c6">self</span>.bmi = <span style="color:#bd93f9">0</span> }
+}
+
+<span style="color:#6272a4">// 標準 BMI 的 Person</span>
+<span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">StandardPerson</span> {
+    @StandardBmi <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">bmi</span>: <span style="color:#8be9fd;font-style:italic">Double</span>
+}
+
+<span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">s</span> = StandardPerson()
+print(<span style="color:#f1fa8c">&#34;s.bmi: </span><span style="color:#f1fa8c">\(</span>s.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>)
+<span style="color:#6272a4">// 設定標準 bmi</span>
+s.bmi = <span style="color:#bd93f9">20.1</span>
+print(<span style="color:#f1fa8c">&#34;s.bmi: </span><span style="color:#f1fa8c">\(</span>s.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// s.bmi: 20.1</span>
+<span style="color:#6272a4">// 設定範圍外的 bmi 都不會設定成功</span>
+s.bmi = <span style="color:#bd93f9">16.6</span>
+print(<span style="color:#f1fa8c">&#34;s.bmi: </span><span style="color:#f1fa8c">\(</span>s.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// s.bmi: 0.0</span>
+s.bmi = <span style="color:#bd93f9">25.8</span>
+print(<span style="color:#f1fa8c">&#34;s.bmi: </span><span style="color:#f1fa8c">\(</span>s.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// s.bmi: 0.0</span>
+</code></pre></div><h3 id="wrapped-properties-的初始化">Wrapped Properties 的初始化</h3>
+<p>我們可以幫 <code>StandardBmi</code> 增添更多初始化方式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">@propertyWrapper
+<span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">StandardBmi</span> {
+    ...
+    <span style="color:#6272a4">// 自訂初始化</span>
+    <span style="color:#8be9fd;font-style:italic">init</span>(wrappedValue: <span style="color:#8be9fd;font-style:italic">Double</span>) {
+        bmi = <span style="color:#bd93f9">18.5</span>..&lt;<span style="color:#bd93f9">24</span> <span style="color:#ff79c6">~=</span> wrappedValue ? wrappedValue : <span style="color:#bd93f9">0</span>
+    }
+}
+
+<span style="color:#6272a4">// 標準 BMI 的 Person</span>
+<span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">StandardPerson</span> {
+    <span style="color:#6272a4">// Wrapper Property 就可以這樣寫</span>
+    @StandardBmi(wrappedValue: <span style="color:#bd93f9">20</span>) <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">bmi</span>: <span style="color:#8be9fd;font-style:italic">Double</span>
+    <span style="color:#6272a4">// 當然也可以直接這樣寫</span>
+    <span style="color:#6272a4">// @StandardBmi var bmi: Double = 20</span>
+}
+</code></pre></div><h3 id="projected-a-value">Projected a value</h3>
+<p>Property Wrapper 還有一個功能就是可以定義投射值 (projected value)</p>
+<ul>
+<li>定義 <code>projectedValue</code> 的 property</li>
+<li>透過 <code>$</code> (dollar sign) 來存取投射值</li>
+</ul>
+<p>假設我們希望 <code>StandardBmi</code> 在設定 bmi 參數的時候可以提示是否有設置成功，可以這樣寫</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">@propertyWrapper
+<span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">StandardBmi</span> {
+    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">bmi</span>: <span style="color:#8be9fd;font-style:italic">Double</span>
+    <span style="color:#6272a4">// 要投射的變數</span>
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">projectedValue</span>: <span style="color:#8be9fd;font-style:italic">Bool</span>
+    <span style="color:#6272a4">// 需定義 wrappedValue</span>
+    <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">wrappedValue</span>: <span style="color:#8be9fd;font-style:italic">Double</span> {
+        <span style="color:#ff79c6">get</span> { <span style="color:#ff79c6">return</span> bmi }
+        <span style="color:#6272a4">// 標準 BMI 的範圍為 18.5 &lt;= bmi &lt; 24 之間</span>
+        <span style="color:#ff79c6">set</span> {
+            <span style="color:#ff79c6">if</span> <span style="color:#bd93f9">18.5</span>..&lt;<span style="color:#bd93f9">24</span> <span style="color:#ff79c6">~=</span> newValue {
+                bmi = newValue
+                projectedValue = <span style="color:#ff79c6">true</span>
+            } <span style="color:#ff79c6">else</span> {
+                bmi = <span style="color:#bd93f9">0</span>
+                projectedValue = <span style="color:#ff79c6">false</span>
+            }
+        }
+    }
+    <span style="color:#8be9fd;font-style:italic">init</span>() {
+        bmi = <span style="color:#bd93f9">0</span>
+        projectedValue = <span style="color:#ff79c6">false</span>
+    }
+}
+
+<span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">s</span> = StandardPerson()
+s.bmi = <span style="color:#bd93f9">20</span>
+print(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\(</span>s.$bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// true</span>
+s.bmi = <span style="color:#bd93f9">15</span>
+print(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\(</span>s.$bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// false</span>
 </code></pre></div><h2 id="references">References</h2>
 <ul>
 <li><a href="https://docs.swift.org/swift-book/LanguageGuide/Properties.html">Properties - Swift.org</a></li>
