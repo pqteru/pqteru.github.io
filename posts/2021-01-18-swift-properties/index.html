@@ -349,6 +349,11 @@ print(<span style="color:#f1fa8c">&#34;s.bmi: </span><span style="color:#f1fa8c"
     }
 }
 
+<span style="color:#6272a4">// 標準 BMI 的 Person</span>
+<span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">StandardPerson</span> {
+    @StandardBmi <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">bmi</span>: <span style="color:#8be9fd;font-style:italic">Double</span>
+}
+
 <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">s</span> = StandardPerson()
 s.bmi = <span style="color:#bd93f9">20</span>
 print(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\(</span>s.$bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// true</span>
