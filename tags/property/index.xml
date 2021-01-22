@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>swift on InstaCoding</title>
-    <link>https://pqteru.github.io/tags/swift/</link>
-    <description>Recent content in swift on InstaCoding</description>
+    <title>property on InstaCoding</title>
+    <link>https://pqteru.github.io/tags/property/</link>
+    <description>Recent content in property on InstaCoding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 18 Jan 2021 10:10:08 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Jan 2021 10:10:08 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/tags/property/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Swift Properties 的兩三事</title>
       <link>https://pqteru.github.io/posts/2021-01-18-swift-properties/</link>
@@ -17,17 +17,6 @@
  Stored 保存變量或常量的屬性 Computed 單純用來運算不做保存的屬性， 可自訂 setter, getter 定義屬性要設定或取得的值 可使用 willSet, didSet 來觀察或執行 set 前後可做的事 可使用 @propertyWrapper 的語法糖來包裝邏輯並減少代碼重複  Stored Properties Stored Property 是作為特定 classes 或 strucutres 的實例的一部分存儲的常量或變量。 存儲屬性可以是 mutable 存儲屬性（由 var 關鍵字引入）或 const 存儲屬性（由 let 關鍵字引入）。
 建立一個 Person 的 struct
 struct Person { var weight: Double // kg var height: Double // cm } 這邊我們定義的 model 是 struct，要注意若使用 let 來定義的話，他的 property 就無法被存取，會有 error 產生，這是因為 struct 是 value type，只要 instance 是定量，則他的 properties 也都會是，就算標記為 var 也一樣</description>
-    </item>
-    
-    <item>
-      <title>Struct vs Class in Swift</title>
-      <link>https://pqteru.github.io/posts/2021-01-17-struct-vs-class-in-swift/</link>
-      <pubDate>Sun, 17 Jan 2021 09:37:34 +0800</pubDate>
-      
-      <guid>https://pqteru.github.io/posts/2021-01-17-struct-vs-class-in-swift/</guid>
-      <description>Structures struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
-struct SWeather { var location: String var minTemp: Double var maxTemp: Double } let s = SWeather(location: &amp;#34;Taipei&amp;#34;, minTemp: 12, maxTemp: 15) 接著定義一個 ss 來 assign to s
-var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:</description>
     </item>
     
   </channel>

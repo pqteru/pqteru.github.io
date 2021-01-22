@@ -14,7 +14,7 @@
       
       <guid>https://pqteru.github.io/posts/2021-01-18-swift-properties/</guid>
       <description>TL;DR, 簡單做個整理 Property 的分類與特性：
- Stored 保存變量或常量的屬性 Computed 單純用來運算不做保存的屬性， 可自訂 setter, getter 定義屬性要設定或取得的值 可使用 willSet, didSet 來觀察或執行 set 前後可做的事 可使用 Property Wrapper 的語法糖來包裝邏輯並減少代碼重複  Stored Properties Stored Property 是作為特定 classes 或 strucutres 的實例的一部分存儲的常量或變量。 存儲屬性可以是 mutable 存儲屬性（由 var 關鍵字引入）或 const 存儲屬性（由 let 關鍵字引入）。
+ Stored 保存變量或常量的屬性 Computed 單純用來運算不做保存的屬性， 可自訂 setter, getter 定義屬性要設定或取得的值 可使用 willSet, didSet 來觀察或執行 set 前後可做的事 可使用 @propertyWrapper 的語法糖來包裝邏輯並減少代碼重複  Stored Properties Stored Property 是作為特定 classes 或 strucutres 的實例的一部分存儲的常量或變量。 存儲屬性可以是 mutable 存儲屬性（由 var 關鍵字引入）或 const 存儲屬性（由 let 關鍵字引入）。
 建立一個 Person 的 struct
 struct Person { var weight: Double // kg var height: Double // cm } 這邊我們定義的 model 是 struct，要注意若使用 let 來定義的話，他的 property 就無法被存取，會有 error 產生，這是因為 struct 是 value type，只要 instance 是定量，則他的 properties 也都會是，就算標記為 var 也一樣</description>
     </item>
