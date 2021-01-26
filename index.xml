@@ -6,7 +6,19 @@
     <description>Recent content on InstaCoding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 18 Jan 2021 10:10:08 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Jan 2021 17:21:09 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swift Functions 的兩三事</title>
+      <link>https://pqteru.github.io/posts/2021-01-22-swift-functions/</link>
+      <pubDate>Fri, 22 Jan 2021 17:21:09 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-01-22-swift-functions/</guid>
+      <description>Swift 的 functions 可以有很多種寫法，非常彈性，支援參數標籤、預設參數、不限參數數量、in-out 跟多載
+// 最一般的寫法 func fooBar() -&amp;gt; String { return &amp;#34;foo bar&amp;#34; } // 甚至可以不寫 return func fooBar() -&amp;gt; String { &amp;#34;foo bar&amp;#34; } 參數標籤 參數前面都可以自訂標籤，在呼叫的該 func 時，xcode 會自動帶出前述標籤，如果想省略也可改為 _ 底線
+// 參數標籤可以自定義 func fooBar(with params: Int) { } fooBar(label: 1) // 省略標籤 func fooBar(_ params: Int) { } fooBar(1) 預設參數值 可在 func 的參數設定預設值，在呼叫時就可省略不寫
+func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 如果需要用到一串很長且重複類型的參數也可以這樣寫 e.g., Int.</description>
+    </item>
+    
     <item>
       <title>Swift Properties 的兩三事</title>
       <link>https://pqteru.github.io/posts/2021-01-18-swift-properties/</link>
