@@ -13,7 +13,7 @@
       <pubDate>Tue, 26 Jan 2021 21:37:19 +0800</pubDate>
       
       <guid>https://pqteru.github.io/posts/2021-01-26-swift-subscripts/</guid>
-      <description>TL;DR, Subscripts(下標腳本) 的特性：
+      <description>下標腳本的特性：
  可定義在類別（class）、結構（structure）和列舉（enumeration） 可自行實作並用來存取 collecitons, list or sequences 元素的捷徑 可簡寫成 somearray[index] 單一個目標內可以定義多個 subscripts  下標腳本語法 語法範例
 // 一般 stored property 的寫法 subscript(index: Int) -&amp;gt; Int { get { } // newValue 為 setter 的預設帶入值 set(newValue) { } } // read-only computed property 也可以直接寫 subscript(index: Int) -&amp;gt; Int { ... } // 調用的時候就可簡寫成 somearray[0] somearray[1] 下標腳本用法 可在 collecitons, list or sequences 自行定義存取的方式，例如 Swift 的 dictionary 就實作了通過下標腳本來對其實例中存放的值進行存取
 var numberOfLegs = [&amp;#34;spider&amp;#34;: 8, &amp;#34;ant&amp;#34;: 6, &amp;#34;cat&amp;#34;: 4] numberOfLegs[&amp;#34;bird&amp;#34;] = 2 下標腳本選項 Subscripts 定義的方式類似於 functions</description>
