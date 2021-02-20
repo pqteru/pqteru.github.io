@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="pqteru">
+    <meta name="description" content="最近換了搭載 M1 晶片的 mac mini, M1 是基於 ARM 指令集架構的自研晶片系統，所以再安裝一些平常在使用的軟體會到無法編譯的問題，想要安裝就需要透過 Rosetta 這編譯軟體來幫忙。
+Rosetta 是蘋果電腦公司發布的在 Mac OS X 上的一個二進位編譯器軟體，2020年 macOS 11.0 Big Sur 內建 Rosetta 2 可以讓在 Intel 平台上開發的軟體在 ARM 架構的 mac 上順利執行
+如果尚未安裝 Rosetta 可執行
+softwareupdate --install-rosetta Homebrew Homebrew 是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
+ 安裝 arm64 的版本  # 預設路徑會安裝在 `/opt/homebrew/` 底下 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 安裝 x86_64 的版本  # 路徑會裝在 `/usr/local/bin` 底下 # 安裝 x86_64 的軟體需要下 arch --x86_64 的指令 arch --x86_64 /bin/bash -c &#34;$(curl -fsSL https://raw.">
+    <meta name="keywords" content="blog,developer,personal,ios">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Apple M1 安裝 Homebrew &amp; zsh 設定"/>
+<meta name="twitter:description" content="最近換了搭載 M1 晶片的 mac mini, M1 是基於 ARM 指令集架構的自研晶片系統，所以再安裝一些平常在使用的軟體會到無法編譯的問題，想要安裝就需要透過 Rosetta 這編譯軟體來幫忙。
+Rosetta 是蘋果電腦公司發布的在 Mac OS X 上的一個二進位編譯器軟體，2020年 macOS 11.0 Big Sur 內建 Rosetta 2 可以讓在 Intel 平台上開發的軟體在 ARM 架構的 mac 上順利執行
+如果尚未安裝 Rosetta 可執行
+softwareupdate --install-rosetta Homebrew Homebrew 是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
+ 安裝 arm64 的版本  # 預設路徑會安裝在 `/opt/homebrew/` 底下 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 安裝 x86_64 的版本  # 路徑會裝在 `/usr/local/bin` 底下 # 安裝 x86_64 的軟體需要下 arch --x86_64 的指令 arch --x86_64 /bin/bash -c &#34;$(curl -fsSL https://raw."/>
+
+    <meta property="og:title" content="Apple M1 安裝 Homebrew &amp; zsh 設定" />
+<meta property="og:description" content="最近換了搭載 M1 晶片的 mac mini, M1 是基於 ARM 指令集架構的自研晶片系統，所以再安裝一些平常在使用的軟體會到無法編譯的問題，想要安裝就需要透過 Rosetta 這編譯軟體來幫忙。
+Rosetta 是蘋果電腦公司發布的在 Mac OS X 上的一個二進位編譯器軟體，2020年 macOS 11.0 Big Sur 內建 Rosetta 2 可以讓在 Intel 平台上開發的軟體在 ARM 架構的 mac 上順利執行
+如果尚未安裝 Rosetta 可執行
+softwareupdate --install-rosetta Homebrew Homebrew 是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
+ 安裝 arm64 的版本  # 預設路徑會安裝在 `/opt/homebrew/` 底下 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 安裝 x86_64 的版本  # 路徑會裝在 `/usr/local/bin` 底下 # 安裝 x86_64 的軟體需要下 arch --x86_64 的指令 arch --x86_64 /bin/bash -c &#34;$(curl -fsSL https://raw." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pqteru.github.io/posts/2021-02-18-macos-m1-terminal/" />
+<meta property="article:published_time" content="2021-02-18T18:32:29+08:00" />
+<meta property="article:modified_time" content="2021-02-18T18:32:29+08:00" />
+
+
+    <title>
+  Apple M1 安裝 Homebrew &amp; zsh 設定 · InstaCoding
+</title>
+
+    
+      <link rel="canonical" href="https://pqteru.github.io/posts/2021-02-18-macos-m1-terminal/">
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    
+      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
+        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      InstaCoding
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Apple M1 安裝 Homebrew &amp; zsh 設定</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-02-18T18:32:29&#43;08:00'>
+                February 18, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/terminal/">terminal</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="/tags/m1/">m1</a>
+      <span class="separator">•</span>
+    <a href="/tags/zsh/">zsh</a>
+      <span class="separator">•</span>
+    <a href="/tags/homebrew/">homebrew</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>最近換了搭載 M1 晶片的 mac mini, M1 是基於 ARM 指令集架構的自研晶片系統，所以再安裝一些平常在使用的軟體會到無法編譯的問題，想要安裝就需要透過 <code>Rosetta</code> 這編譯軟體來幫忙。</p>
+<p><a href="https://zh.wikipedia.org/zh-tw/Rosetta">Rosetta</a> 是蘋果電腦公司發布的在 Mac OS X 上的一個二進位編譯器軟體，2020年 macOS 11.0 Big Sur 內建 Rosetta 2 可以讓在 Intel 平台上開發的軟體在 ARM 架構的 mac 上順利執行</p>
+<p>如果尚未安裝 Rosetta 可執行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">softwareupdate --install-rosetta
+</code></pre></div><h2 id="homebrew">Homebrew</h2>
+<p><a href="https://brew.sh/index_zh-tw">Homebrew</a> 是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)</p>
+<ol>
+<li>安裝 arm64 的版本</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># 預設路徑會安裝在 `/opt/homebrew/` 底下</span>
+/bin/bash -c <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+</code></pre></div><ol start="2">
+<li>安裝 x86_64 的版本</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># 路徑會裝在 `/usr/local/bin` 底下</span>
+<span style="color:#6272a4"># 安裝 x86_64 的軟體需要下 arch --x86_64 的指令</span>
+arch --x86_64 /bin/bash -c <span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+</code></pre></div><ol start="3">
+<li>建立 alias 給兩個不同的版本</li>
+</ol>
+<p>打開 <code>~/.bashrc</code> or <code>~/.zshrc</code> 輸入</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># x86_64 version brew path</span>
+<span style="color:#6272a4"># 這邊會把舊版本取為 brow (o for old)</span>
+<span style="color:#8be9fd;font-style:italic">alias</span> <span style="color:#8be9fd;font-style:italic">brow</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;arch --x86_64 /usr/local/Homebrew/bin/brew&#39;</span>
+</code></pre></div><ol start="4">
+<li>重開 terminal 測試看看別名有沒有設定成功</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew --prefix
+<span style="color:#6272a4"># /opt/homebrew</span>
+brow --prefix
+<span style="color:#6272a4"># /usr/local</span>
+</code></pre></div><h2 id="zsh">Zsh</h2>
+<p><a href="https://ohmyz.sh/">Oh My Zsh</a> 如同 bash 一樣是一個命令直譯器，其他還有 <a href="https://github.com/oh-my-fish/oh-my-fish">Oh My Fish</a> ，每個命令直譯器都有各自的優缺點，有空皆可以玩玩看，2019 年起 macOS 的預設 Shell 已從 Bash 改為 Zsh，可以打開 terminal 看一下，目前的終端機使用哪個，如果還不是 zsh，可以參照下面的步驟切換</p>
+<ol>
+<li>設定 &gt; 使用者與群組 &gt; 打開鎖頭 &gt; USER 頭像上 cmd + 滑鼠右鍵 &gt; 進階選項</li>
+<li>「登入 Shell 」改為 <code>/bin/zsh/</code> 保存之後</li>
+<li>重新開啟 terminal 就是 <code>zsh</code> 了</li>
+</ol>
+<h2 id="nvm">nvm</h2>
+<p>因為我們會安裝一個 <a href="https://github.com/sindresorhus/pure">pure-prompt</a> 簡潔的 zsh 樣板，會透過 <code>npm</code> 來安裝，所以這邊會先安裝個 node 的版本控制軟體 - <a href="https://github.com/nvm-sh/nvm">nvm</a> (Node Version Manager) 是 Node.js 的版本管理工具。如果是要手動安裝 pure-prompt 的話則可略過。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># 透過 brew 安裝</span>
+brew install nvm
+<span style="color:#6272a4"># 安裝完之後看看安裝的 info</span>
+brew info nvm
+</code></pre></div><p>可以遵從下面的指示來設定路徑</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">You should create NVM<span style="color:#f1fa8c">&#39;s working directory if it doesn&#39;</span>t exist:
+
+  mkdir ~/.nvm
+
+Add the following to /Users/davidchen/.bash_profile or your desired shell
+configuration file:
+
+  <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">NVM_DIR</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$HOME</span><span style="color:#f1fa8c">/.nvm&#34;</span>
+  <span style="color:#ff79c6">[</span> -s <span style="color:#f1fa8c">&#34;/opt/homebrew/opt/nvm/nvm.sh&#34;</span> <span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&amp;&amp;</span> . <span style="color:#f1fa8c">&#34;/opt/homebrew/opt/nvm/nvm.sh&#34;</span>  <span style="color:#6272a4"># This loads nvm</span>
+  <span style="color:#ff79c6">[</span> -s <span style="color:#f1fa8c">&#34;/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm&#34;</span> <span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&amp;&amp;</span> . <span style="color:#f1fa8c">&#34;/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm&#34;</span>  <span style="color:#6272a4"># This loads nvm bash_completion</span>
+</code></pre></div><p>編輯完成之後 run <code>source ~/.zshrc</code> 看看是不是正常</p>
+<blockquote>
+<p>如果有出現 <code>zsh compinit: insecure directories, run compaudit for list.</code> 的提示的話
+可以輸入 <code>compaudit | xargs chmod g-w</code> 來改寫 directory 權限</p>
+</blockquote>
+<p>檢視 nvm 版本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># 列出所有可安裝的版本</span>
+nvm ls-remote
+<span style="color:#6272a4"># 建議安裝最新的 LTS 版本</span>
+nvm install &lt;version&gt;
+</code></pre></div><p>其他常用的指令</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># 查看目前已經安裝的版本</span>
+nvm ls 
+<span style="color:#6272a4"># 切換版本</span>
+nvm use &lt;version&gt;
+<span style="color:#6272a4"># 移除指定版本</span>
+nvm uninstall &lt;version&gt;
+<span style="color:#6272a4">## check npm installed list global </span>
+npm list -g --depth <span style="color:#bd93f9">0</span>
+</code></pre></div><h2 id="pure-prompt">pure-prompt</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># 安裝 pure-prompt</span>
+npm install -g pure-prompt
+</code></pre></div><p>最後打開 <code>~/.zshrc</code> 把最基本的範例貼上</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#6272a4"># .zshrc</span>
+
+autoload -U promptinit; promptinit
+
+<span style="color:#6272a4"># optionally define some options</span>
+<span style="color:#8be9fd;font-style:italic">PURE_CMD_MAX_EXEC_TIME</span><span style="color:#ff79c6">=</span><span style="color:#bd93f9">10</span>
+
+<span style="color:#6272a4"># change the path color</span>
+zstyle :prompt:pure:path color white
+
+<span style="color:#6272a4"># change the color for both `prompt:success` and `prompt:error`</span>
+zstyle <span style="color:#f1fa8c">&#39;:prompt:pure:prompt:*&#39;</span> color cyan
+
+<span style="color:#6272a4"># turn on git stash status</span>
+zstyle :prompt:pure:git:stash show yes
+
+prompt pure
+</code></pre></div><p>若想了解更多 zsh 的設定可以至 <a href="http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Special-characters">zsh prompt expansion</a> 看看相關說明</p>
+<p>最後 run <code>source ~/.zshrc</code> 就可以有非常簡潔的 zsh 終端機！</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/64951024/how-can-i-run-two-isolated-installations-of-homebrew">two-isolated-installations-of-homebrew</a></li>
+<li><a href="https://github.com/zsh-users/zsh-completions/issues/680">zsh-completions issues</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "instacoding" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2021
+         pqteru 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-39516340-6', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

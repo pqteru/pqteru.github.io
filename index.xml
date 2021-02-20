@@ -6,7 +6,20 @@
     <description>Recent content on InstaCoding</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 26 Jan 2021 21:37:19 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Feb 2021 18:32:29 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apple M1 安裝 Homebrew &amp; zsh 設定</title>
+      <link>https://pqteru.github.io/posts/2021-02-18-macos-m1-terminal/</link>
+      <pubDate>Thu, 18 Feb 2021 18:32:29 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-02-18-macos-m1-terminal/</guid>
+      <description>最近換了搭載 M1 晶片的 mac mini, M1 是基於 ARM 指令集架構的自研晶片系統，所以再安裝一些平常在使用的軟體會到無法編譯的問題，想要安裝就需要透過 Rosetta 這編譯軟體來幫忙。
+Rosetta 是蘋果電腦公司發布的在 Mac OS X 上的一個二進位編譯器軟體，2020年 macOS 11.0 Big Sur 內建 Rosetta 2 可以讓在 Intel 平台上開發的軟體在 ARM 架構的 mac 上順利執行
+如果尚未安裝 Rosetta 可執行
+softwareupdate --install-rosetta Homebrew Homebrew 是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
+ 安裝 arm64 的版本  # 預設路徑會安裝在 `/opt/homebrew/` 底下 /bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; 安裝 x86_64 的版本  # 路徑會裝在 `/usr/local/bin` 底下 # 安裝 x86_64 的軟體需要下 arch --x86_64 的指令 arch --x86_64 /bin/bash -c &amp;#34;$(curl -fsSL https://raw.</description>
+    </item>
+    
     <item>
       <title>Swift Subscripts 的兩三事</title>
       <link>https://pqteru.github.io/posts/2021-01-26-swift-subscripts/</link>
