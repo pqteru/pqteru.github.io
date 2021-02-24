@@ -205,22 +205,12 @@ brow --prefix
 </ol>
 <h2 id="nvm">nvm</h2>
 <p>因為我們會安裝一個 <a href="https://github.com/sindresorhus/pure">pure-prompt</a> 簡潔的 zsh 樣板，會透過 <code>npm</code> 來安裝，所以這邊會先安裝個 node 的版本控制軟體 - <a href="https://github.com/nvm-sh/nvm">nvm</a> (Node Version Manager) 是 Node.js 的版本管理工具。如果是要手動安裝 pure-prompt 的話則可略過。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># 透過 brew 安裝</span>
-brew install nvm
-<span style="color:#6272a4"># 安裝完之後看看安裝的 info</span>
-brew info nvm
-</code></pre></div><p>可以遵從下面的指示來設定路徑</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">You should create NVM<span style="color:#f1fa8c">&#39;s working directory if it doesn&#39;</span>t exist:
-
-  mkdir ~/.nvm
-
-Add the following to /Users/davidchen/.bash_profile or your desired shell
-configuration file:
-
-  <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">NVM_DIR</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$HOME</span><span style="color:#f1fa8c">/.nvm&#34;</span>
-  <span style="color:#ff79c6">[</span> -s <span style="color:#f1fa8c">&#34;/opt/homebrew/opt/nvm/nvm.sh&#34;</span> <span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&amp;&amp;</span> . <span style="color:#f1fa8c">&#34;/opt/homebrew/opt/nvm/nvm.sh&#34;</span>  <span style="color:#6272a4"># This loads nvm</span>
-  <span style="color:#ff79c6">[</span> -s <span style="color:#f1fa8c">&#34;/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm&#34;</span> <span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&amp;&amp;</span> . <span style="color:#f1fa8c">&#34;/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm&#34;</span>  <span style="color:#6272a4"># This loads nvm bash_completion</span>
-</code></pre></div><p>編輯完成之後 run <code>source ~/.zshrc</code> 看看是不是正常</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># 依照官方教學安裝</span>
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+</code></pre></div><p>把下面的環境變數加入到 <code>~/.zshrc</code> 或 <code>~/.bashrc</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">NVM_DIR</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">$(</span><span style="color:#ff79c6">[</span> -z <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">XDG_CONFIG_HOME</span>-<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">printf</span> %s <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">HOME</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">/.nvm&#34;</span> <span style="color:#ff79c6">||</span> <span style="color:#8be9fd;font-style:italic">printf</span> %s <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">XDG_CONFIG_HOME</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">/nvm&#34;</span><span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+<span style="color:#ff79c6">[</span> -s <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$NVM_DIR</span><span style="color:#f1fa8c">/nvm.sh&#34;</span> <span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#f1fa8c">\.</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$NVM_DIR</span><span style="color:#f1fa8c">/nvm.sh&#34;</span> <span style="color:#6272a4"># This loads nvm</span>
+</code></pre></div><p>編輯完成之後新開一個 terminal 或重 load <code>source ~/.zshrc</code> 看看是不是正常</p>
 <blockquote>
 <p>如果有出現 <code>zsh compinit: insecure directories, run compaudit for list.</code> 的提示的話
 可以輸入 <code>compaudit | xargs chmod g-w</code> 來改寫 directory 權限</p>
