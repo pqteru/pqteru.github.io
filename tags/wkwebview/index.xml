@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wkwebview on InstaCoding</title>
+    <link>https://pqteru.github.io/tags/wkwebview/</link>
+    <description>Recent content in wkwebview on InstaCoding</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Wed, 24 Feb 2021 14:16:29 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/tags/wkwebview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WebKit - WKWebView 的兩三事</title>
+      <link>https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/</link>
+      <pubDate>Wed, 24 Feb 2021 14:16:29 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/</guid>
+      <description>由於 UIWebView 已經過時一段時間了，Apple 建議改用 WKWebView (iOS 8+) 來實現 webview 的呈現，這篇就來簡單做個介紹跟可能會遇到的問題解法。
+WKWebView 是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
+ 可設定 KWebViewConfiguration 可實作 WKUIDelegate 來實現 JS 在瀏覽器網頁的功能 規範 webview 的 WKNavigationDelegate 自訂是否要允許或拒絕導航目標 URL 的政策。  直接看官方給的範例
+import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView! override func loadView() { let webConfiguration = WKWebViewConfiguration() webView = WKWebView(frame: .zero, configuration: webConfiguration) webView.uiDelegate = self webView.navigationDelegate = self view = webView } override func viewDidLoad() { super.</description>
+    </item>
+    
+  </channel>
+</rss>
