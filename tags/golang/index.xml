@@ -14,10 +14,8 @@
       
       <guid>https://pqteru.github.io/posts/2021-01-08-hugo-blog/</guid>
       <description>hugo  是 golang 寫的一個部落格框架，支援 markdown 語法，透過生成靜態網頁，靜態網頁可以快速的透過瀏覽器下載並呈現，大幅提升讀取速速，現在就來教學如何建立一個 Hugo 的部落格
-安裝 Installation Step 1: 安裝 Hugo 如果是 mac 的使用者，可以透過 homebrew  來安裝 hugo
-brew install hugo hugo version # 確認版本 Step 2: 建立一個新的網站 hugo new site sitename # 替代 sitename 為自己想要的名字 Step 3: 加入一個 theme Hugo 可以客製自己想要的版型，這邊 有非常多的版型可以挑選，找到喜歡的版型之後可以透過 git submodule 來加入版型的模組，若之後有更新的版本可以直接透過 submodule 來 update 版本
-cd sitename git init git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke Step 4: 開始我們第一篇文章 Hugo 提供指令可以直接產生一篇文章框架
-hugo new posts/my-first-post.</description>
+ 安裝 Installation  Step 1: 安裝 Hugo Step 2: 建立一個新的網站 Step 3: 加入一個 theme Step 4: 開始我們第一篇文章 Step 5: 啟動 Hugo server Step 6: 客製化版型及設定 Step 7: 產生靜態網頁   Hosting on GitHub Pages 寫 script 來自動化執行更新    安裝 Installation Step 1: 安裝 Hugo 如果是 mac 的使用者，可以透過 homebrew  來安裝 hugo
+brew install hugo hugo version # 確認版本 Step 2: 建立一個新的網站 hugo new site sitename # 替代 sitename 為自己想要的名字 Step 3: 加入一個 theme Hugo 可以客製自己想要的版型，這邊 有非常多的版型可以挑選，找到喜歡的版型之後可以透過 git submodule 來加入版型的模組，若之後有更新的版本可以直接透過 submodule 來 update 版本</description>
     </item>
     
   </channel>
