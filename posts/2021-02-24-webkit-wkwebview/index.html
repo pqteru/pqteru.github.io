@@ -8,23 +8,23 @@
 
     <meta name="author" content="pqteru">
     <meta name="description" content="由於 UIWebView 已經過時一段時間了，Apple 建議改用 WKWebView (iOS 8&#43;) 來實現 webview 的呈現，這篇就來簡單做個介紹跟可能會遇到的問題解法。
-WKWebView 是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
- 可設定 KWebViewConfiguration 可實作 WKUIDelegate 來實現 JS 在瀏覽器網頁的功能 規範 webview 的 WKNavigationDelegate 自訂是否要允許或拒絕導航目標 URL 的政策。  直接看官方給的範例
-import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView! override func loadView() { let webConfiguration = WKWebViewConfiguration() webView = WKWebView(frame: .zero, configuration: webConfiguration) webView.uiDelegate = self webView.navigationDelegate = self view = webView } override func viewDidLoad() { super.">
+WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
+ 可設定 KWebViewConfiguration  可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能 規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  直接看官方給的範例
+import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView! override func loadView() { let webConfiguration = WKWebViewConfiguration() webView = WKWebView(frame: .zero, configuration: webConfiguration) webView.">
     <meta name="keywords" content="app,web,ios,blog,developer,note">
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="WebKit - WKWebView 的兩三事"/>
 <meta name="twitter:description" content="由於 UIWebView 已經過時一段時間了，Apple 建議改用 WKWebView (iOS 8&#43;) 來實現 webview 的呈現，這篇就來簡單做個介紹跟可能會遇到的問題解法。
-WKWebView 是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
- 可設定 KWebViewConfiguration 可實作 WKUIDelegate 來實現 JS 在瀏覽器網頁的功能 規範 webview 的 WKNavigationDelegate 自訂是否要允許或拒絕導航目標 URL 的政策。  直接看官方給的範例
-import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView! override func loadView() { let webConfiguration = WKWebViewConfiguration() webView = WKWebView(frame: .zero, configuration: webConfiguration) webView.uiDelegate = self webView.navigationDelegate = self view = webView } override func viewDidLoad() { super."/>
+WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
+ 可設定 KWebViewConfiguration  可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能 規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  直接看官方給的範例
+import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView! override func loadView() { let webConfiguration = WKWebViewConfiguration() webView = WKWebView(frame: .zero, configuration: webConfiguration) webView."/>
 
     <meta property="og:title" content="WebKit - WKWebView 的兩三事" />
 <meta property="og:description" content="由於 UIWebView 已經過時一段時間了，Apple 建議改用 WKWebView (iOS 8&#43;) 來實現 webview 的呈現，這篇就來簡單做個介紹跟可能會遇到的問題解法。
-WKWebView 是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
- 可設定 KWebViewConfiguration 可實作 WKUIDelegate 來實現 JS 在瀏覽器網頁的功能 規範 webview 的 WKNavigationDelegate 自訂是否要允許或拒絕導航目標 URL 的政策。  直接看官方給的範例
-import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView! override func loadView() { let webConfiguration = WKWebViewConfiguration() webView = WKWebView(frame: .zero, configuration: webConfiguration) webView.uiDelegate = self webView.navigationDelegate = self view = webView } override func viewDidLoad() { super." />
+WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
+ 可設定 KWebViewConfiguration  可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能 規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  直接看官方給的範例
+import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView! override func loadView() { let webConfiguration = WKWebViewConfiguration() webView = WKWebView(frame: .zero, configuration: webConfiguration) webView." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/" />
 <meta property="article:published_time" content="2021-02-24T14:16:29+08:00" />
@@ -161,11 +161,19 @@ import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate 
       <div>
         
         <p>由於 <code>UIWebView</code> 已經過時一段時間了，Apple 建議改用 <code>WKWebView</code> (iOS 8+) 來實現 webview 的呈現，這篇就來簡單做個介紹跟可能會遇到的問題解法。</p>
-<p><a href="https://developer.apple.com/documentation/webkit/wkwebview">WKWebView</a> 是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 <code>load(_:)</code>, <code>reload()</code>, <code>goBack(_:)</code>, <code>goForward(_:)</code>, <code>estimatedProgress</code> 等等之外，還可以做一些設定跟進階判斷：</p>
+<p><a href="https://developer.apple.com/documentation/webkit/wkwebview" target="_blank">
+    WKWebView
+</a> 是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 <code>load(_:)</code>, <code>reload()</code>, <code>goBack(_:)</code>, <code>goForward(_:)</code>, <code>estimatedProgress</code> 等等之外，還可以做一些設定跟進階判斷：</p>
 <ul>
-<li>可設定 <a href="https://developer.apple.com/documentation/webkit/wkwebviewconfiguration">KWebViewConfiguration</a></li>
-<li>可實作 <a href="https://developer.apple.com/documentation/webkit/wkuidelegate?language=objc">WKUIDelegate</a> 來實現 JS 在瀏覽器網頁的功能</li>
-<li>規範 webview 的 <a href="https://developer.apple.com/documentation/webkit/wknavigationdelegate">WKNavigationDelegate</a> 自訂是否要允許或拒絕導航目標 URL 的政策。</li>
+<li>可設定 <a href="https://developer.apple.com/documentation/webkit/wkwebviewconfiguration" target="_blank">
+    KWebViewConfiguration
+</a></li>
+<li>可實作 <a href="https://developer.apple.com/documentation/webkit/wkuidelegate?language=objc" target="_blank">
+    WKUIDelegate
+</a> 來實現 JS 在瀏覽器網頁的功能</li>
+<li>規範 webview 的 <a href="https://developer.apple.com/documentation/webkit/wknavigationdelegate" target="_blank">
+    WKNavigationDelegate
+</a> 自訂是否要允許或拒絕導航目標 URL 的政策。</li>
 </ul>
 <p>直接看官方給的範例</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">import</span> <span style="color:#50fa7b">UIKit</span>
@@ -241,7 +249,9 @@ import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate 
     <span style="color:#ff79c6">self</span>.present(alertController, animated: <span style="color:#ff79c6">true</span>, completion: <span style="color:#ff79c6">nil</span>)
 }
 </code></pre></div><h3 id="判斷網頁的另開分頁">判斷網頁的「另開分頁」</h3>
-<p>可實作 <a href="(https://developer.apple.com/documentation/webkit/wkuidelegate/1536907-webview)">webView(_:createWebViewWith:for:windowFeatures:)</a> 來判斷 web 的 <code>target = _blank</code> (另開分頁) ，接著可以自行決定是要透過原本的 webview 來繼續瀏覽目標網頁或是再另外 present 一個 view 出來</p>
+<p>可實作 <a href="%28https://developer.apple.com/documentation/webkit/wkuidelegate/1536907-webview%29">
+    webView(_:createWebViewWith:for:windowFeatures:)
+</a> 來判斷 web 的 <code>target = _blank</code> (另開分頁) ，接著可以自行決定是要透過原本的 webview 來繼續瀏覽目標網頁或是再另外 present 一個 view 出來</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// WKNavigationDelegate</span>
 <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(webView: WKWebView!, createWebViewWithConfiguration configuration: WKWebViewConfiguration!, forNavigationAction navigationAction: WKNavigationAction!, windowFeatures: WKWindowFeatures!) -&gt; WKWebView! {
     <span style="color:#6272a4">// 判斷 targetFrame 是否等於 nil，若是則為另開分頁</span>
@@ -263,8 +273,12 @@ import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate 
     <span style="color:#ff79c6">case</span> browser
 }
 </code></pre></div><h3 id="訂定導航政策">訂定導航政策</h3>
-<p><a href="(https://developer.apple.com/documentation/webkit/wknavigationdelegate/3223382-webview)">webView(_:decidePolicyFor:preferences:decisionHandler:)</a> 可以用來自訂是否允許或拒絕將要瀏覽的目標 URL，若實作此 methold 請記得在特定的點執行 <code>decisionHandler</code></p>
-<p>另可判斷 <code>navigationAction.navigationType</code> (<a href="https://developer.apple.com/documentation/webkit/wknavigationtype">WKNavigationType</a>) 有些哪類型可以調用</p>
+<p><a href="%28https://developer.apple.com/documentation/webkit/wknavigationdelegate/3223382-webview%29">
+    webView(_:decidePolicyFor:preferences:decisionHandler:)
+</a> 可以用來自訂是否允許或拒絕將要瀏覽的目標 URL，若實作此 methold 請記得在特定的點執行 <code>decisionHandler</code></p>
+<p>另可判斷 <code>navigationAction.navigationType</code> (<a href="https://developer.apple.com/documentation/webkit/wknavigationtype" target="_blank">
+    WKNavigationType
+</a>) 有些哪類型可以調用</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(<span style="color:#ff79c6">_</span> webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: ((WKNavigationActionPolicy) -&gt; <span style="color:#8be9fd;font-style:italic">Void</span>)) {
     ...
     <span style="color:#6272a4">// 可透過 switch 判斷 navigationType .linkActivated 或 .other 等等</span>
@@ -379,6 +393,8 @@ import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate 
       
     
 
+    
+      <script src="/js/custom.js"></script>
     
 
     
