@@ -5,26 +5,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
 
     <meta name="author" content="pqteru">
     <meta name="description" content="下標腳本的特性：
- 可定義在類別（class）、結構（structure）和列舉（enumeration） 可自行實作並用來存取 collecitons, list or sequences 元素的捷徑 可簡寫成 somearray[index] 單一個目標內可以定義多個 subscripts  下標腳本語法 語法範例
-// 一般 stored property 的寫法 subscript(index: Int) -&gt; Int { get { } // newValue 為 setter 的預設帶入值 set(newValue) { } } // read-only computed property 也可以直接寫 subscript(index: Int) -&gt; Int { ... } // 調用的時候就可簡寫成 somearray[0] somearray[1] 下標腳本用法 可在 collecitons, list or sequences 自行定義存取的方式，例如 Swift 的 dictionary 就實作了通過下標腳本來對其實例中存放的值進行存取
-var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] numberOfLegs[&#34;bird&#34;] = 2 下標腳本選項 Subscripts 定義的方式類似於 functions">
+ 可定義在類別（class）、結構（structure）和列舉（enumeration） 可自行實作並用來存取 collecitons, list or sequences 元素的捷徑 可簡寫成 somearray[index] 單一個目標內可以定義多個 subscripts  下標腳本語法    語法範例
+// 一般 stored property 的寫法 subscript(index: Int) -&gt; Int { get { } // newValue 為 setter 的預設帶入值 set(newValue) { } } // read-only computed property 也可以直接寫 subscript(index: Int) -&gt; Int { ... } // 調用的時候就可簡寫成 somearray[0] somearray[1] 下標腳本用法    可在 collecitons, list or sequences 自行定義存取的方式，例如 Swift 的 dictionary 就實作了通過下標腳本來對其實例中存放的值進行存取">
     <meta name="keywords" content="app,web,ios,blog,developer,note">
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swift Subscripts 的兩三事"/>
 <meta name="twitter:description" content="下標腳本的特性：
- 可定義在類別（class）、結構（structure）和列舉（enumeration） 可自行實作並用來存取 collecitons, list or sequences 元素的捷徑 可簡寫成 somearray[index] 單一個目標內可以定義多個 subscripts  下標腳本語法 語法範例
-// 一般 stored property 的寫法 subscript(index: Int) -&gt; Int { get { } // newValue 為 setter 的預設帶入值 set(newValue) { } } // read-only computed property 也可以直接寫 subscript(index: Int) -&gt; Int { ... } // 調用的時候就可簡寫成 somearray[0] somearray[1] 下標腳本用法 可在 collecitons, list or sequences 自行定義存取的方式，例如 Swift 的 dictionary 就實作了通過下標腳本來對其實例中存放的值進行存取
-var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] numberOfLegs[&#34;bird&#34;] = 2 下標腳本選項 Subscripts 定義的方式類似於 functions"/>
+ 可定義在類別（class）、結構（structure）和列舉（enumeration） 可自行實作並用來存取 collecitons, list or sequences 元素的捷徑 可簡寫成 somearray[index] 單一個目標內可以定義多個 subscripts  下標腳本語法    語法範例
+// 一般 stored property 的寫法 subscript(index: Int) -&gt; Int { get { } // newValue 為 setter 的預設帶入值 set(newValue) { } } // read-only computed property 也可以直接寫 subscript(index: Int) -&gt; Int { ... } // 調用的時候就可簡寫成 somearray[0] somearray[1] 下標腳本用法    可在 collecitons, list or sequences 自行定義存取的方式，例如 Swift 的 dictionary 就實作了通過下標腳本來對其實例中存放的值進行存取"/>
 
     <meta property="og:title" content="Swift Subscripts 的兩三事" />
 <meta property="og:description" content="下標腳本的特性：
- 可定義在類別（class）、結構（structure）和列舉（enumeration） 可自行實作並用來存取 collecitons, list or sequences 元素的捷徑 可簡寫成 somearray[index] 單一個目標內可以定義多個 subscripts  下標腳本語法 語法範例
-// 一般 stored property 的寫法 subscript(index: Int) -&gt; Int { get { } // newValue 為 setter 的預設帶入值 set(newValue) { } } // read-only computed property 也可以直接寫 subscript(index: Int) -&gt; Int { ... } // 調用的時候就可簡寫成 somearray[0] somearray[1] 下標腳本用法 可在 collecitons, list or sequences 自行定義存取的方式，例如 Swift 的 dictionary 就實作了通過下標腳本來對其實例中存放的值進行存取
-var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] numberOfLegs[&#34;bird&#34;] = 2 下標腳本選項 Subscripts 定義的方式類似於 functions" />
+ 可定義在類別（class）、結構（structure）和列舉（enumeration） 可自行實作並用來存取 collecitons, list or sequences 元素的捷徑 可簡寫成 somearray[index] 單一個目標內可以定義多個 subscripts  下標腳本語法    語法範例
+// 一般 stored property 的寫法 subscript(index: Int) -&gt; Int { get { } // newValue 為 setter 的預設帶入值 set(newValue) { } } // read-only computed property 也可以直接寫 subscript(index: Int) -&gt; Int { ... } // 調用的時候就可簡寫成 somearray[0] somearray[1] 下標腳本用法    可在 collecitons, list or sequences 自行定義存取的方式，例如 Swift 的 dictionary 就實作了通過下標腳本來對其實例中存放的值進行存取" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pqteru.github.io/posts/2021-01-26-swift-subscripts/" />
 <meta property="article:published_time" content="2021-01-26T21:37:19+08:00" />
@@ -39,15 +39,12 @@ var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] num
       <link rel="canonical" href="https://pqteru.github.io/posts/2021-01-26-swift-subscripts/">
     
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
-      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -56,7 +53,7 @@ var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] num
       
         
         
-        <link rel="stylesheet" href="/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
       
     
 
@@ -70,11 +67,6 @@ var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] num
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    
-      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
-        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
-    
-
     <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
@@ -82,9 +74,7 @@ var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] num
   
     
   
-  <body class="colorscheme-auto"
-        onload=" twemoji.parse(document.body); "
-  >
+  <body class="preload-transitions colorscheme-auto">
     
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -129,7 +119,11 @@ var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] num
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Swift Subscripts 的兩三事</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://pqteru.github.io/posts/2021-01-26-swift-subscripts/">
+              Swift Subscripts 的兩三事
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
@@ -144,16 +138,23 @@ var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] num
               2-minute read
             </span>
           </div>
-          
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/david/">david</a></div>
+
           <div class="categories">
   <i class="fa fa-folder" aria-hidden="true"></i>
     <a href="/categories/swift-docs/">swift docs</a></div>
 
           <div class="tags">
   <i class="fa fa-tag" aria-hidden="true"></i>
-    <a href="/tags/swift/">swift</a>
+    <span class="tag">
+      <a href="/tags/swift/">swift</a>
+    </span>
       <span class="separator">•</span>
-    <a href="/tags/subscripts/">subscripts</a></div>
+    <span class="tag">
+      <a href="/tags/subscripts/">subscripts</a>
+    </span></div>
 
         </div>
       </header>
@@ -167,7 +168,12 @@ var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] num
 <li>可簡寫成 <code>somearray[index]</code></li>
 <li>單一個目標內可以定義多個 subscripts</li>
 </ul>
-<h2 id="下標腳本語法">下標腳本語法</h2>
+<h2 id="下標腳本語法">
+  下標腳本語法
+  <a class="heading-link" href="#%e4%b8%8b%e6%a8%99%e8%85%b3%e6%9c%ac%e8%aa%9e%e6%b3%95">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>語法範例</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// 一般 stored property 的寫法</span>
 <span style="color:#8be9fd;font-style:italic">subscript</span>(index: <span style="color:#8be9fd;font-style:italic">Int</span>) -&gt; <span style="color:#8be9fd;font-style:italic">Int</span> {
@@ -184,11 +190,21 @@ var numberOfLegs = [&#34;spider&#34;: 8, &#34;ant&#34;: 6, &#34;cat&#34;: 4] num
 <span style="color:#6272a4">// 調用的時候就可簡寫成</span>
 somearray[<span style="color:#bd93f9">0</span>]
 somearray[<span style="color:#bd93f9">1</span>]
-</code></pre></div><h2 id="下標腳本用法">下標腳本用法</h2>
+</code></pre></div><h2 id="下標腳本用法">
+  下標腳本用法
+  <a class="heading-link" href="#%e4%b8%8b%e6%a8%99%e8%85%b3%e6%9c%ac%e7%94%a8%e6%b3%95">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>可在 collecitons, list or sequences 自行定義存取的方式，例如 Swift 的 <code>dictionary</code> 就實作了通過下標腳本來對其實例中存放的值進行存取</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">numberOfLegs</span> = [<span style="color:#f1fa8c">&#34;spider&#34;</span>: <span style="color:#bd93f9">8</span>, <span style="color:#f1fa8c">&#34;ant&#34;</span>: <span style="color:#bd93f9">6</span>, <span style="color:#f1fa8c">&#34;cat&#34;</span>: <span style="color:#bd93f9">4</span>]
 numberOfLegs[<span style="color:#f1fa8c">&#34;bird&#34;</span>] = <span style="color:#bd93f9">2</span>
-</code></pre></div><h2 id="下標腳本選項">下標腳本選項</h2>
+</code></pre></div><h2 id="下標腳本選項">
+  下標腳本選項
+  <a class="heading-link" href="#%e4%b8%8b%e6%a8%99%e8%85%b3%e6%9c%ac%e9%81%b8%e9%a0%85">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>Subscripts 定義的方式類似於 functions</p>
 <ul>
 <li>可以接受各種不同類型的參數，包含不限數量(variadic)類型 (<code>Int...</code>, <code>Double...</code>, etc.)</li>
@@ -229,7 +245,12 @@ print(<span style="color:#f1fa8c">&#34;subscript: </span><span style="color:#f1f
 <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">matrix</span> = Matrix(rows: <span style="color:#bd93f9">2</span>, columns: <span style="color:#bd93f9">2</span>)
 <span style="color:#6272a4">// 如果想取得範圍外的元素 assertion 就會擋住</span>
 <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">someValue</span> = matrix[<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>]
-</code></pre></div><h2 id="類型下標腳本">類型下標腳本</h2>
+</code></pre></div><h2 id="類型下標腳本">
+  類型下標腳本
+  <a class="heading-link" href="#%e9%a1%9e%e5%9e%8b%e4%b8%8b%e6%a8%99%e8%85%b3%e6%9c%ac">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>實例下標可回傳指定類型。稱為類型下標(Type Subscripts)</p>
 <ul>
 <li>struct, enum 可設為 <code>static</code></li>
@@ -245,7 +266,12 @@ print(<span style="color:#f1fa8c">&#34;subscript: </span><span style="color:#f1f
 }
 <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">w</span> = Week[<span style="color:#bd93f9">3</span>]
 print(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\(</span>w<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// wednesday</span>
-</code></pre></div><h2 id="reference">Reference</h2>
+</code></pre></div><h2 id="reference">
+  Reference
+  <a class="heading-link" href="#reference">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <ul>
 <li><a href="https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html" target="_blank">
     Subscripts - Swift.org
@@ -289,36 +315,32 @@ print(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\(</sp
 
       </div>
 
-      
-  <footer class="footer">
-    <section class="container">
-      
-      
-        ©
-        
-        2021
-         pqteru 
-      
-      
-         · 
-        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-      
-      
-    </section>
-  </footer>
-
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2021 -
+    
+    2022
+     pqteru 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
 
     </main>
 
     
       
-        
-        <script src="/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
-      
+      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
     
 
     
-      <script src="/js/custom.js"></script>
+      
+        
+        <script src="/js/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="></script>
+      
     
 
     
@@ -335,6 +357,10 @@ if (!doNotTrack) {
 }
 </script>
 
+
+    
+
+    
 
     
 

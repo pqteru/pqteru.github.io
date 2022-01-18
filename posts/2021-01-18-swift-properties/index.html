@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
 
     <meta name="author" content="pqteru">
     <meta name="description" content="swift properties">
@@ -30,15 +33,12 @@
       <link rel="canonical" href="https://pqteru.github.io/posts/2021-01-18-swift-properties/">
     
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
-      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -47,7 +47,7 @@
       
         
         
-        <link rel="stylesheet" href="/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
       
     
 
@@ -61,11 +61,6 @@
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    
-      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
-        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
-    
-
     <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
@@ -73,9 +68,7 @@
   
     
   
-  <body class="colorscheme-auto"
-        onload=" twemoji.parse(document.body); "
-  >
+  <body class="preload-transitions colorscheme-auto">
     
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -120,7 +113,11 @@
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Swift Properties 的兩三事</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://pqteru.github.io/posts/2021-01-18-swift-properties/">
+              Swift Properties 的兩三事
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
@@ -135,16 +132,23 @@
               4-minute read
             </span>
           </div>
-          
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/david/">david</a></div>
+
           <div class="categories">
   <i class="fa fa-folder" aria-hidden="true"></i>
     <a href="/categories/swift-docs/">swift docs</a></div>
 
           <div class="tags">
   <i class="fa fa-tag" aria-hidden="true"></i>
-    <a href="/tags/swift/">swift</a>
+    <span class="tag">
+      <a href="/tags/swift/">swift</a>
+    </span>
       <span class="separator">•</span>
-    <a href="/tags/property/">property</a></div>
+    <span class="tag">
+      <a href="/tags/property/">property</a>
+    </span></div>
 
         </div>
       </header>
@@ -159,7 +163,12 @@
 <li>可使用 <code>willSet</code>, <code>didSet</code> 來觀察或執行 <code>set</code> 前後可做的事</li>
 <li>可使用 <code>@propertyWrapper</code> 的語法糖來包裝邏輯並減少代碼重複</li>
 </ul>
-<h2 id="stored-properties">Stored Properties</h2>
+<h2 id="stored-properties">
+  Stored Properties
+  <a class="heading-link" href="#stored-properties">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>Stored Property 是作為特定 classes 或 strucutres 的實例的一部分存儲的常量或變量。 存儲屬性可以是 mutable 存儲屬性（由 <code>var</code> 關鍵字引入）或 const 存儲屬性（由 <code>let</code> 關鍵字引入）。</p>
 <p>建立一個 <code>Person</code> 的 struct</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">Person</span> {
@@ -171,7 +180,12 @@
 <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">p</span> = Person(weight: <span style="color:#bd93f9">50</span>, height: <span style="color:#bd93f9">170</span>)
 <span style="color:#6272a4">// 這會有 error: Cannot assign to property: &#39;p&#39; is a &#39;let&#39; constant</span>
 p.weight = <span style="color:#bd93f9">70</span> 
-</code></pre></div><h3 id="lazy-modifier">Lazy modifier</h3>
+</code></pre></div><h3 id="lazy-modifier">
+  Lazy modifier
+  <a class="heading-link" href="#lazy-modifier">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <p><code>lazy</code> 修飾符用來表示該屬性當第一次被使用時才會初始化，滿大的好處是節省記憶體得使用，不讓還未使用到的變量充斥在程式裡面，<code>lazy</code> 的屬性只能用 <code>var</code> 來定義，不能用 <code>let</code> ，因為 const 在初始之前就一定要有值</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">Person</span> {
     ...
@@ -197,19 +211,34 @@ dump(p)
   ...
   ▿ <span style="color:#8be9fd;font-style:italic">$__lazy_storage_$_name</span>: Optional<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Joe&#34;</span><span style="color:#ff79c6">)</span>
     - some: <span style="color:#f1fa8c">&#34;Joe&#34;</span>
-</code></pre></div><h2 id="computed-properties">Computed Properties</h2>
+</code></pre></div><h2 id="computed-properties">
+  Computed Properties
+  <a class="heading-link" href="#computed-properties">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <ul>
 <li>這些屬性並不存儲 value，它們提供了一個 getter 和一個 optional setter，以間接檢索和設置其他屬性和值。</li>
 <li>若不設定 setter 則為 read-only</li>
 <li><code>class</code>, <code>struct</code> 和 <code>enum</code> 皆可定義</li>
 </ul>
-<h3 id="setter-的縮寫宣告">Setter 的縮寫宣告</h3>
+<h3 id="setter-的縮寫宣告">
+  Setter 的縮寫宣告
+  <a class="heading-link" href="#setter-%e7%9a%84%e7%b8%ae%e5%af%ab%e5%ae%a3%e5%91%8a">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <p><code>newValue</code> 為預設的 setter new value</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#ff79c6">set</span> {
     origin.x = newValue.x <span style="color:#ff79c6">-</span> (size.width <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">2</span>)
     origin.y = newValue.y <span style="color:#ff79c6">-</span> (size.height <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">2</span>)
 }
-</code></pre></div><h3 id="getter-的縮寫宣告">Getter 的縮寫宣告</h3>
+</code></pre></div><h3 id="getter-的縮寫宣告">
+  Getter 的縮寫宣告
+  <a class="heading-link" href="#getter-%e7%9a%84%e7%b8%ae%e5%af%ab%e5%ae%a3%e5%91%8a">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <p>若括號內的定義是一行可以表示的話，則 return 可省略(implicitly expression)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#ff79c6">get</span> {
     Point(x: origin.x <span style="color:#ff79c6">+</span> (size.width <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">2</span>),
@@ -230,7 +259,12 @@ dump(p)
 <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">p</span> = Person(weight: <span style="color:#bd93f9">50</span>, height: <span style="color:#bd93f9">170</span>)
 print(<span style="color:#f1fa8c">&#34;p.bmi: </span><span style="color:#f1fa8c">\(</span>p.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>)
 <span style="color:#6272a4">// 會得到計算結果：p.bmi: 17.301</span>
-</code></pre></div><h2 id="property-observers">Property Observers</h2>
+</code></pre></div><h2 id="property-observers">
+  Property Observers
+  <a class="heading-link" href="#property-observers">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>觀察並回應屬性的變化。 每次設置屬性值時都會調用 Property Observer，即使新值與屬性的當前值相同也是如此。</p>
 <ul>
 <li>可在任一個 stored property 設置，但無法在 <code>lazy</code> 的 property 設置。</li>
@@ -274,7 +308,12 @@ p.lossWeight = <span style="color:#bd93f9">5</span>
 <span style="color:#6272a4">// 總共減重 8.0 公斤</span>
 print(<span style="color:#f1fa8c">&#34;減重後的 bmi: </span><span style="color:#f1fa8c">\(</span>p.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>)
 <span style="color:#6272a4">// 減重後的 bmi: 21.453</span>
-</code></pre></div><h2 id="property-wrapper">Property Wrapper</h2>
+</code></pre></div><h2 id="property-wrapper">
+  Property Wrapper
+  <a class="heading-link" href="#property-wrapper">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>Wrapper 是一個提供可自定義和保存 property 方式的語法糖，方便使用並減少代碼的重複</p>
 <ul>
 <li>使用 <code>@propertyWrapper</code> keyword</li>
@@ -309,7 +348,12 @@ s.bmi = <span style="color:#bd93f9">16.6</span>
 print(<span style="color:#f1fa8c">&#34;s.bmi: </span><span style="color:#f1fa8c">\(</span>s.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// s.bmi: 0.0</span>
 s.bmi = <span style="color:#bd93f9">25.8</span>
 print(<span style="color:#f1fa8c">&#34;s.bmi: </span><span style="color:#f1fa8c">\(</span>s.bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// s.bmi: 0.0</span>
-</code></pre></div><h3 id="wrapped-properties-的初始化">Wrapped Properties 的初始化</h3>
+</code></pre></div><h3 id="wrapped-properties-的初始化">
+  Wrapped Properties 的初始化
+  <a class="heading-link" href="#wrapped-properties-%e7%9a%84%e5%88%9d%e5%a7%8b%e5%8c%96">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <p>我們可以幫 <code>StandardBmi</code> 增添更多初始化方式</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">@propertyWrapper
 <span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">StandardBmi</span> {
@@ -327,7 +371,12 @@ print(<span style="color:#f1fa8c">&#34;s.bmi: </span><span style="color:#f1fa8c"
     <span style="color:#6272a4">// 當然也可以直接這樣寫</span>
     <span style="color:#6272a4">// @StandardBmi var bmi: Double = 20</span>
 }
-</code></pre></div><h3 id="projecting-a-value">Projecting a value</h3>
+</code></pre></div><h3 id="projecting-a-value">
+  Projecting a value
+  <a class="heading-link" href="#projecting-a-value">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <p>Property Wrapper 還有一個功能就是可以定義投射值 (projected value)</p>
 <ul>
 <li>定義 <code>projectedValue</code> 的 property</li>
@@ -369,7 +418,12 @@ s.bmi = <span style="color:#bd93f9">20</span>
 print(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\(</span>s.$bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// true</span>
 s.bmi = <span style="color:#bd93f9">15</span>
 print(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\(</span>s.$bmi<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// false</span>
-</code></pre></div><h2 id="references">References</h2>
+</code></pre></div><h2 id="references">
+  References
+  <a class="heading-link" href="#references">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <ul>
 <li><a href="https://docs.swift.org/swift-book/LanguageGuide/Properties.html" target="_blank">
     Properties - Swift.org
@@ -413,36 +467,32 @@ print(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\(</sp
 
       </div>
 
-      
-  <footer class="footer">
-    <section class="container">
-      
-      
-        ©
-        
-        2021
-         pqteru 
-      
-      
-         · 
-        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-      
-      
-    </section>
-  </footer>
-
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2021 -
+    
+    2022
+     pqteru 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
 
     </main>
 
     
       
-        
-        <script src="/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
-      
+      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
     
 
     
-      <script src="/js/custom.js"></script>
+      
+        
+        <script src="/js/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="></script>
+      
     
 
     
@@ -459,6 +509,10 @@ if (!doNotTrack) {
 }
 </script>
 
+
+    
+
+    
 
     
 

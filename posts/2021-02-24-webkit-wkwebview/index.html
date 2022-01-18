@@ -5,23 +5,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
 
     <meta name="author" content="pqteru">
     <meta name="description" content="由於 UIWebView 已經過時一段時間了，Apple 建議改用 WKWebView (iOS 8&#43;) 來實現 webview 的呈現，這篇就來簡單做個介紹跟可能會遇到的問題解法。
 WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
- 可設定 WKWebViewConfiguration  做更細部的設定 可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能  實現 JS alert, confirm, prompt 實作 target = _blank (另開分頁) 功能   規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  自訂導航政策 決策 URL 是開啟原生畫面或 webview    初始化 WKWebView import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView!">
+ 可設定 WKWebViewConfiguration  做更細部的設定 可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能  實現 JS alert, confirm, prompt 實作 target = _blank (另開分頁) 功能   規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  自訂導航政策 決策 URL 是開啟原生畫面或 webview    初始化 WKWebView    import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView!">
     <meta name="keywords" content="app,web,ios,blog,developer,note">
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="WebKit - WKWebView 的兩三事"/>
 <meta name="twitter:description" content="由於 UIWebView 已經過時一段時間了，Apple 建議改用 WKWebView (iOS 8&#43;) 來實現 webview 的呈現，這篇就來簡單做個介紹跟可能會遇到的問題解法。
 WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
- 可設定 WKWebViewConfiguration  做更細部的設定 可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能  實現 JS alert, confirm, prompt 實作 target = _blank (另開分頁) 功能   規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  自訂導航政策 決策 URL 是開啟原生畫面或 webview    初始化 WKWebView import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView!"/>
+ 可設定 WKWebViewConfiguration  做更細部的設定 可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能  實現 JS alert, confirm, prompt 實作 target = _blank (另開分頁) 功能   規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  自訂導航政策 決策 URL 是開啟原生畫面或 webview    初始化 WKWebView    import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView!"/>
 
     <meta property="og:title" content="WebKit - WKWebView 的兩三事" />
 <meta property="og:description" content="由於 UIWebView 已經過時一段時間了，Apple 建議改用 WKWebView (iOS 8&#43;) 來實現 webview 的呈現，這篇就來簡單做個介紹跟可能會遇到的問題解法。
 WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
- 可設定 WKWebViewConfiguration  做更細部的設定 可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能  實現 JS alert, confirm, prompt 實作 target = _blank (另開分頁) 功能   規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  自訂導航政策 決策 URL 是開啟原生畫面或 webview    初始化 WKWebView import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView!" />
+ 可設定 WKWebViewConfiguration  做更細部的設定 可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能  實現 JS alert, confirm, prompt 實作 target = _blank (另開分頁) 功能   規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  自訂導航政策 決策 URL 是開啟原生畫面或 webview    初始化 WKWebView    import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/" />
 <meta property="article:published_time" content="2021-02-24T14:16:29+08:00" />
@@ -36,15 +39,12 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
       <link rel="canonical" href="https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/">
     
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
-      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -53,7 +53,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
       
         
         
-        <link rel="stylesheet" href="/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
       
     
 
@@ -67,11 +67,6 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    
-      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
-        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
-    
-
     <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
@@ -79,9 +74,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
   
     
   
-  <body class="colorscheme-auto"
-        onload=" twemoji.parse(document.body); "
-  >
+  <body class="preload-transitions colorscheme-auto">
     
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -126,7 +119,11 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">WebKit - WKWebView 的兩三事</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/">
+              WebKit - WKWebView 的兩三事
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
@@ -141,16 +138,23 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
               3-minute read
             </span>
           </div>
-          
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/david/">david</a></div>
+
           <div class="categories">
   <i class="fa fa-folder" aria-hidden="true"></i>
     <a href="/categories/webkit/">webkit</a></div>
 
           <div class="tags">
   <i class="fa fa-tag" aria-hidden="true"></i>
-    <a href="/tags/swift/">swift</a>
+    <span class="tag">
+      <a href="/tags/swift/">swift</a>
+    </span>
       <span class="separator">•</span>
-    <a href="/tags/wkwebview/">wkwebview</a></div>
+    <span class="tag">
+      <a href="/tags/wkwebview/">wkwebview</a>
+    </span></div>
 
         </div>
       </header>
@@ -182,7 +186,12 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
 </ul>
 </li>
 </ul>
-<h2 id="初始化-wkwebview">初始化 WKWebView</h2>
+<h2 id="初始化-wkwebview">
+  初始化 WKWebView
+  <a class="heading-link" href="#%e5%88%9d%e5%a7%8b%e5%8c%96-wkwebview">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">import</span> <span style="color:#50fa7b">UIKit</span>
 <span style="color:#8be9fd;font-style:italic">import</span> <span style="color:#50fa7b">WebKit</span>
 
@@ -213,8 +222,18 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
         webView.load(myRequest)
     }
 }
-</code></pre></div><h2 id="wkuidelegate">WKUIDelegate</h2>
-<h3 id="實現-js-alert-confirm-prompt">實現 JS alert, confirm, prompt</h3>
+</code></pre></div><h2 id="wkuidelegate">
+  WKUIDelegate
+  <a class="heading-link" href="#wkuidelegate">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="實現-js-alert-confirm-prompt">
+  實現 JS alert, confirm, prompt
+  <a class="heading-link" href="#%e5%af%a6%e7%8f%be-js-alert-confirm-prompt">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <p>Web 很常使用到 js 的 alert, confirm 或是 prompt 的功能，但無法觸發，因為 WKWebView 把這些事件攔截下來，傳入這個 delegate 中，讓開發者使用 App 的原生元件來進行控制</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#6272a4">// 跳出視窗
 </span><span style="color:#6272a4"></span>alert(<span style="color:#f1fa8c">&#34;hello world&#34;</span>);
@@ -225,14 +244,24 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
 <span style="color:#6272a4">// prompt 跳出輸入框對話
 </span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">=</span> prompt(message, <span style="color:#ff79c6">default</span>);
 </code></pre></div><p>可實作下列 <code>WKUIDelegate</code> 的 methods 來實現上述的功能</p>
-<h4 id="處理-js-alert">處理 JS alert()</h4>
+<h4 id="處理-js-alert">
+  處理 JS alert()
+  <a class="heading-link" href="#%e8%99%95%e7%90%86-js-alert">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(<span style="color:#ff79c6">_</span> webView: WKWebView, runJavaScriptAlertPanelWithMessage message: <span style="color:#8be9fd;font-style:italic">String</span>, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -&gt; <span style="color:#8be9fd;font-style:italic">Void</span>) {
     <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">alertController</span> = UIAlertController(title: <span style="color:#ff79c6">nil</span>, message: message, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: <span style="color:#f1fa8c">&#34;確定&#34;</span>, style: .<span style="color:#ff79c6">default</span>, handler: <span style="color:#ff79c6">nil</span>))
     <span style="color:#ff79c6">self</span>.present(alertController, animated: <span style="color:#ff79c6">true</span>, completion: <span style="color:#ff79c6">nil</span>)
     completionHandler()
 }
-</code></pre></div><h4 id="處理-js-confirm">處理 JS confirm()</h4>
+</code></pre></div><h4 id="處理-js-confirm">
+  處理 JS confirm()
+  <a class="heading-link" href="#%e8%99%95%e7%90%86-js-confirm">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// `completionHandler()` 帶 `true` 的話等是確定(OK), 帶 `false` 則是取消(Cancel)</span>
 <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(<span style="color:#ff79c6">_</span> webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: <span style="color:#8be9fd;font-style:italic">String</span>, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (<span style="color:#8be9fd;font-style:italic">Bool</span>) -&gt; <span style="color:#8be9fd;font-style:italic">Void</span>) {
     <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">alertController</span> = UIAlertController(title: <span style="color:#ff79c6">nil</span>, message: message, preferredStyle: .alert)
@@ -244,7 +273,12 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     }))
     <span style="color:#ff79c6">self</span>.present(alertController, animated: <span style="color:#ff79c6">true</span>, completion: <span style="color:#ff79c6">nil</span>)
 }
-</code></pre></div><h4 id="處理-js-prompt">處理 JS prompt()</h4>
+</code></pre></div><h4 id="處理-js-prompt">
+  處理 JS prompt()
+  <a class="heading-link" href="#%e8%99%95%e7%90%86-js-prompt">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// webView(_:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:)</span>
 <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(<span style="color:#ff79c6">_</span> webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: <span style="color:#8be9fd;font-style:italic">String</span>, defaultText: <span style="color:#8be9fd;font-style:italic">String</span>?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (<span style="color:#8be9fd;font-style:italic">String</span>?) -&gt; <span style="color:#8be9fd;font-style:italic">Void</span>) {
     <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">alertController</span> = UIAlertController(title: <span style="color:#ff79c6">nil</span>, message: prompt, preferredStyle: .alert)
@@ -264,7 +298,12 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     }))
     <span style="color:#ff79c6">self</span>.present(alertController, animated: <span style="color:#ff79c6">true</span>, completion: <span style="color:#ff79c6">nil</span>)
 }
-</code></pre></div><h3 id="實作-target--_blank-另開分頁-功能">實作 target = _blank (另開分頁) 功能</h3>
+</code></pre></div><h3 id="實作-target--_blank-另開分頁-功能">
+  實作 target = _blank (另開分頁) 功能
+  <a class="heading-link" href="#%e5%af%a6%e4%bd%9c-target--_blank-%e5%8f%a6%e9%96%8b%e5%88%86%e9%a0%81-%e5%8a%9f%e8%83%bd">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <p>可實作 <a href="%28https://developer.apple.com/documentation/webkit/wkuidelegate/1536907-webview%29">
     webView(_:createWebViewWith:for:windowFeatures:)
 </a> 來判斷 web 的 <code>target = _blank</code> (另開分頁) ，接著可以自行決定是要透過原本的 webview 來繼續瀏覽目標網頁或是再另外 present 一個 view 出來</p>
@@ -277,14 +316,29 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     }
     <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">nil</span>
 }
-</code></pre></div><h2 id="wknavigationdelegate">WKNavigationDelegate</h2>
-<h3 id="自訂導航政策">自訂導航政策</h3>
+</code></pre></div><h2 id="wknavigationdelegate">
+  WKNavigationDelegate
+  <a class="heading-link" href="#wknavigationdelegate">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="自訂導航政策">
+  自訂導航政策
+  <a class="heading-link" href="#%e8%87%aa%e8%a8%82%e5%b0%8e%e8%88%aa%e6%94%bf%e7%ad%96">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <p><a href="%28https://developer.apple.com/documentation/webkit/wknavigationdelegate/3223382-webview%29">
     webView(_:decidePolicyFor:preferences:decisionHandler:)
 </a> 可以用來自訂是否允許或拒絕將要瀏覽的目標 URL，若實作此 methold 請記得在特定的點執行 <code>decisionHandler</code>，另可判斷 <code>preferences</code> 的 <a href="https://developer.apple.com/documentation/webkit/wknavigationtype" target="_blank">
     WKNavigationType
 </a> 有些哪類型可以調用</p>
-<h3 id="決策-url-是開啟原生畫面或-webview">決策 URL 是開啟原生畫面或 webview</h3>
+<h3 id="決策-url-是開啟原生畫面或-webview">
+  決策 URL 是開啟原生畫面或 webview
+  <a class="heading-link" href="#%e6%b1%ba%e7%ad%96-url-%e6%98%af%e9%96%8b%e5%95%9f%e5%8e%9f%e7%94%9f%e7%95%ab%e9%9d%a2%e6%88%96-webview">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <p>假設有個情境是透過點擊連結之後判斷是否要由 native app 開啟或由 webview 或由 Safari browser 來開啟頁面，如果遇到自家的網域時可以開啟原生畫面，其他則是開啟 webview 或 browser</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// 可先定義一個 open url type 的 enum</span>
 <span style="color:#8be9fd;font-style:italic">enum</span> <span style="color:#50fa7b">OpenUrlType</span> {
@@ -382,36 +436,32 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
 
       </div>
 
-      
-  <footer class="footer">
-    <section class="container">
-      
-      
-        ©
-        
-        2021
-         pqteru 
-      
-      
-         · 
-        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-      
-      
-    </section>
-  </footer>
-
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2021 -
+    
+    2022
+     pqteru 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
 
     </main>
 
     
       
-        
-        <script src="/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
-      
+      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
     
 
     
-      <script src="/js/custom.js"></script>
+      
+        
+        <script src="/js/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="></script>
+      
     
 
     
@@ -428,6 +478,10 @@ if (!doNotTrack) {
 }
 </script>
 
+
+    
+
+    
 
     
 

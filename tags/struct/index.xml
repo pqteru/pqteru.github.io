@@ -13,7 +13,7 @@
       <pubDate>Sun, 17 Jan 2021 09:37:34 +0800</pubDate>
       
       <guid>https://pqteru.github.io/posts/2021-01-17-struct-vs-class-in-swift/</guid>
-      <description>Structures struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
+      <description>Structures    struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
 struct SWeather { var location: String var minTemp: Double var maxTemp: Double } let s = SWeather(location: &amp;#34;Taipei&amp;#34;, minTemp: 12, maxTemp: 15) 接著定義一個 ss 來 assign to s
 var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:</description>
     </item>

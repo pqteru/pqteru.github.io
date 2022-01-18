@@ -15,7 +15,7 @@
       <guid>https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/</guid>
       <description>由於 UIWebView 已經過時一段時間了，Apple 建議改用 WKWebView (iOS 8+) 來實現 webview 的呈現，這篇就來簡單做個介紹跟可能會遇到的問題解法。
 WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
- 可設定 WKWebViewConfiguration  做更細部的設定 可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能  實現 JS alert, confirm, prompt 實作 target = _blank (另開分頁) 功能   規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  自訂導航政策 決策 URL 是開啟原生畫面或 webview    初始化 WKWebView import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView!</description>
+ 可設定 WKWebViewConfiguration  做更細部的設定 可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能  實現 JS alert, confirm, prompt 實作 target = _blank (另開分頁) 功能   規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  自訂導航政策 決策 URL 是開啟原生畫面或 webview    初始化 WKWebView    import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView!</description>
     </item>
     
   </channel>

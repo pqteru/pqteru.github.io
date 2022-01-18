@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>david on InstaCoding</title>
+    <link>https://pqteru.github.io/authors/david/</link>
+    <description>Recent content in david on InstaCoding</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Tue, 18 Jan 2022 10:04:17 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/authors/david/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker image 到底要 pull 哪一個？</title>
+      <link>https://pqteru.github.io/posts/2022-01-18-difference-in-docker-image/</link>
+      <pubDate>Tue, 18 Jan 2022 10:04:17 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2022-01-18-difference-in-docker-image/</guid>
+      <description>許多人在從 DockerHub  pull image 下來時，可能都會有疑問到底要拉哪個鏡像下來？光是 python  就有 Alpine, Slim, Stretch, Buster, Jessie, Bullseye 等等的版本，甚至還帶上 -slim, -windowsservicecore 的子標籤，如果你也有跟我一樣的疑問的話，希望這篇可以幫助你去了解這些鏡像得不同之處，這篇舉 python 的鏡像為例來做個說明。
+ Version and latest Stretch/Buster/Jessie  -slim -alpine -windowsservercore   結論：有選擇障礙怎麼辦？ 查看各個 image 的 size    Version and latest    通常就是冒號之後帶上版本，如 python:3.10.1，這也是官方推的正式版本，檔案通常比較大，如果不確定要使用哪個安裝這個就對了，最安全支援度也是最廣。盡量不要使用 latest 的 image，因為每次 build 都會拉最新版的下來，可能會遇到很多不可預期的問題，最好是指定一個版本。
+Stretch/Buster/Jessie    這些名字其實是代表 Debian Release  的版本代號，Buster 是 Debian version 10 與衍伸的代號，Stretch 是版本 9，Jessie 則是版本 8 的代號。開發中的代號是 Bullseye 跟 Bookworm。端看使用環境來選擇相對的版本。</description>
+    </item>
+    
+    <item>
+      <title>WebKit - WKWebView 的兩三事</title>
+      <link>https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/</link>
+      <pubDate>Wed, 24 Feb 2021 14:16:29 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/</guid>
+      <description>由於 UIWebView 已經過時一段時間了，Apple 建議改用 WKWebView (iOS 8+) 來實現 webview 的呈現，這篇就來簡單做個介紹跟可能會遇到的問題解法。
+WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
+ 可設定 WKWebViewConfiguration  做更細部的設定 可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能  實現 JS alert, confirm, prompt 實作 target = _blank (另開分頁) 功能   規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  自訂導航政策 決策 URL 是開啟原生畫面或 webview    初始化 WKWebView    import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView!</description>
+    </item>
+    
+    <item>
+      <title>Apple M1 安裝 Homebrew &amp; zsh 設定</title>
+      <link>https://pqteru.github.io/posts/2021-02-18-macos-m1-terminal/</link>
+      <pubDate>Thu, 18 Feb 2021 18:32:29 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-02-18-macos-m1-terminal/</guid>
+      <description>最近換了搭載 M1 晶片的 mac mini, M1 是基於 ARM 指令集架構的自研晶片系統，所以再安裝一些平常在使用的軟體會到無法編譯的問題，想要安裝就需要透過 Rosetta 這編譯軟體來幫忙。
+Rosetta  是蘋果電腦公司發布的在 Mac OS X 上的一個二進位編譯器軟體，2020年 macOS 11.0 Big Sur 內建 Rosetta 2 可以讓在 Intel 平台上開發的軟體在 ARM 架構的 mac 上順利執行
+如果尚未安裝 Rosetta 可執行
+softwareupdate --install-rosetta Homebrew    Homebrew  是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
+ 安裝 arm64 的版本  # 預設路徑會安裝在 `/opt/homebrew/` 底下 /bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; 安裝 x86_64 的版本  # 路徑會裝在 `/usr/local/bin` 底下 # 安裝 x86_64 的軟體需要下 arch --x86_64 的指令 arch --x86_64 /bin/bash -c &amp;#34;$(curl -fsSL https://raw.</description>
+    </item>
+    
+    <item>
+      <title>Swift Subscripts 的兩三事</title>
+      <link>https://pqteru.github.io/posts/2021-01-26-swift-subscripts/</link>
+      <pubDate>Tue, 26 Jan 2021 21:37:19 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-01-26-swift-subscripts/</guid>
+      <description>下標腳本的特性：
+ 可定義在類別（class）、結構（structure）和列舉（enumeration） 可自行實作並用來存取 collecitons, list or sequences 元素的捷徑 可簡寫成 somearray[index] 單一個目標內可以定義多個 subscripts  下標腳本語法    語法範例
+// 一般 stored property 的寫法 subscript(index: Int) -&amp;gt; Int { get { } // newValue 為 setter 的預設帶入值 set(newValue) { } } // read-only computed property 也可以直接寫 subscript(index: Int) -&amp;gt; Int { ... } // 調用的時候就可簡寫成 somearray[0] somearray[1] 下標腳本用法    可在 collecitons, list or sequences 自行定義存取的方式，例如 Swift 的 dictionary 就實作了通過下標腳本來對其實例中存放的值進行存取</description>
+    </item>
+    
+    <item>
+      <title>Swift Functions 的兩三事</title>
+      <link>https://pqteru.github.io/posts/2021-01-22-swift-functions/</link>
+      <pubDate>Fri, 22 Jan 2021 17:21:09 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-01-22-swift-functions/</guid>
+      <description>Swift 的 functions 可以有很多種寫法，非常彈性，支援參數標籤、預設參數、不限參數數量、in-out 跟多載
+// 最一般的寫法 func fooBar() -&amp;gt; String { return &amp;#34;foo bar&amp;#34; } // 甚至可以不寫 return func fooBar() -&amp;gt; String { &amp;#34;foo bar&amp;#34; } 參數標籤    參數前面都可以自訂標籤，在呼叫的該 func 時，xcode 會自動帶出前述標籤，如果想省略也可改為 _ 底線
+// 參數標籤可以自定義 func fooBar(with params: Int) { } fooBar(label: 1) // 省略標籤 func fooBar(_ params: Int) { } fooBar(1) 預設參數值    可在 func 的參數設定預設值，在呼叫時就可省略不寫
+func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic)    如果需要用到一串很長且重複類型的參數也可以這樣寫 e.</description>
+    </item>
+    
+    <item>
+      <title>Swift Properties 的兩三事</title>
+      <link>https://pqteru.github.io/posts/2021-01-18-swift-properties/</link>
+      <pubDate>Mon, 18 Jan 2021 10:10:08 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-01-18-swift-properties/</guid>
+      <description>TL;DR, 簡單做個整理 Property 的分類與特性：
+ Stored 保存變量或常量的屬性 Computed 單純用來運算不做保存的屬性， 可自訂 setter, getter 定義屬性要設定或取得的值 可使用 willSet, didSet 來觀察或執行 set 前後可做的事 可使用 @propertyWrapper 的語法糖來包裝邏輯並減少代碼重複  Stored Properties    Stored Property 是作為特定 classes 或 strucutres 的實例的一部分存儲的常量或變量。 存儲屬性可以是 mutable 存儲屬性（由 var 關鍵字引入）或 const 存儲屬性（由 let 關鍵字引入）。
+建立一個 Person 的 struct
+struct Person { var weight: Double // kg var height: Double // cm } 這邊我們定義的 model 是 struct，要注意若使用 let 來定義的話，他的 property 就無法被存取，會有 error 產生，這是因為 struct 是 value type，只要 instance 是定量，則他的 properties 也都會是，就算標記為 var 也一樣</description>
+    </item>
+    
+    <item>
+      <title>Struct vs Class in Swift</title>
+      <link>https://pqteru.github.io/posts/2021-01-17-struct-vs-class-in-swift/</link>
+      <pubDate>Sun, 17 Jan 2021 09:37:34 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-01-17-struct-vs-class-in-swift/</guid>
+      <description>Structures    struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
+struct SWeather { var location: String var minTemp: Double var maxTemp: Double } let s = SWeather(location: &amp;#34;Taipei&amp;#34;, minTemp: 12, maxTemp: 15) 接著定義一個 ss 來 assign to s
+var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:</description>
+    </item>
+    
+    <item>
+      <title>使用 hugo 來建立部落格</title>
+      <link>https://pqteru.github.io/posts/2021-01-08-hugo-blog/</link>
+      <pubDate>Fri, 08 Jan 2021 18:29:01 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-01-08-hugo-blog/</guid>
+      <description>hugo  是 golang 寫的一個部落格框架，支援 markdown 語法，透過生成靜態網頁，靜態網頁可以快速的透過瀏覽器下載並呈現，大幅提升讀取速速，現在就來教學如何建立一個 Hugo 的部落格
+ 安裝 Installation  Step 1: 安裝 Hugo Step 2: 建立一個新的網站 Step 3: 加入一個 theme Step 4: 開始我們第一篇文章 Step 5: 啟動 Hugo server Step 6: 客製化版型及設定 Step 7: 產生靜態網頁   Hosting on GitHub Pages 寫 script 來自動化執行更新    安裝 Installation    Step 1: 安裝 Hugo    如果是 mac 的使用者，可以透過 homebrew  來安裝 hugo
+brew install hugo hugo version # 確認版本 Step 2: 建立一個新的網站    hugo new site sitename # 替代 sitename 為自己想要的名字 Step 3: 加入一個 theme    Hugo 可以客製自己想要的版型，這邊 有非常多的版型可以挑選，找到喜歡的版型之後可以透過 git submodule 來加入版型的模組，若之後有更新的版本可以直接透過 submodule 來 update 版本</description>
+    </item>
+    
+  </channel>
+</rss>

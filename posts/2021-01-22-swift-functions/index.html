@@ -5,26 +5,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
 
     <meta name="author" content="pqteru">
     <meta name="description" content="Swift 的 functions 可以有很多種寫法，非常彈性，支援參數標籤、預設參數、不限參數數量、in-out 跟多載
-// 最一般的寫法 func fooBar() -&gt; String { return &#34;foo bar&#34; } // 甚至可以不寫 return func fooBar() -&gt; String { &#34;foo bar&#34; } 參數標籤 參數前面都可以自訂標籤，在呼叫的該 func 時，xcode 會自動帶出前述標籤，如果想省略也可改為 _ 底線
-// 參數標籤可以自定義 func fooBar(with params: Int) { } fooBar(label: 1) // 省略標籤 func fooBar(_ params: Int) { } fooBar(1) 預設參數值 可在 func 的參數設定預設值，在呼叫時就可省略不寫
-func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 如果需要用到一串很長且重複類型的參數也可以這樣寫 e.g., Int.">
+// 最一般的寫法 func fooBar() -&gt; String { return &#34;foo bar&#34; } // 甚至可以不寫 return func fooBar() -&gt; String { &#34;foo bar&#34; } 參數標籤    參數前面都可以自訂標籤，在呼叫的該 func 時，xcode 會自動帶出前述標籤，如果想省略也可改為 _ 底線
+// 參數標籤可以自定義 func fooBar(with params: Int) { } fooBar(label: 1) // 省略標籤 func fooBar(_ params: Int) { } fooBar(1) 預設參數值    可在 func 的參數設定預設值，在呼叫時就可省略不寫
+func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic)    如果需要用到一串很長且重複類型的參數也可以這樣寫 e.">
     <meta name="keywords" content="app,web,ios,blog,developer,note">
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swift Functions 的兩三事"/>
 <meta name="twitter:description" content="Swift 的 functions 可以有很多種寫法，非常彈性，支援參數標籤、預設參數、不限參數數量、in-out 跟多載
-// 最一般的寫法 func fooBar() -&gt; String { return &#34;foo bar&#34; } // 甚至可以不寫 return func fooBar() -&gt; String { &#34;foo bar&#34; } 參數標籤 參數前面都可以自訂標籤，在呼叫的該 func 時，xcode 會自動帶出前述標籤，如果想省略也可改為 _ 底線
-// 參數標籤可以自定義 func fooBar(with params: Int) { } fooBar(label: 1) // 省略標籤 func fooBar(_ params: Int) { } fooBar(1) 預設參數值 可在 func 的參數設定預設值，在呼叫時就可省略不寫
-func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 如果需要用到一串很長且重複類型的參數也可以這樣寫 e.g., Int."/>
+// 最一般的寫法 func fooBar() -&gt; String { return &#34;foo bar&#34; } // 甚至可以不寫 return func fooBar() -&gt; String { &#34;foo bar&#34; } 參數標籤    參數前面都可以自訂標籤，在呼叫的該 func 時，xcode 會自動帶出前述標籤，如果想省略也可改為 _ 底線
+// 參數標籤可以自定義 func fooBar(with params: Int) { } fooBar(label: 1) // 省略標籤 func fooBar(_ params: Int) { } fooBar(1) 預設參數值    可在 func 的參數設定預設值，在呼叫時就可省略不寫
+func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic)    如果需要用到一串很長且重複類型的參數也可以這樣寫 e."/>
 
     <meta property="og:title" content="Swift Functions 的兩三事" />
 <meta property="og:description" content="Swift 的 functions 可以有很多種寫法，非常彈性，支援參數標籤、預設參數、不限參數數量、in-out 跟多載
-// 最一般的寫法 func fooBar() -&gt; String { return &#34;foo bar&#34; } // 甚至可以不寫 return func fooBar() -&gt; String { &#34;foo bar&#34; } 參數標籤 參數前面都可以自訂標籤，在呼叫的該 func 時，xcode 會自動帶出前述標籤，如果想省略也可改為 _ 底線
-// 參數標籤可以自定義 func fooBar(with params: Int) { } fooBar(label: 1) // 省略標籤 func fooBar(_ params: Int) { } fooBar(1) 預設參數值 可在 func 的參數設定預設值，在呼叫時就可省略不寫
-func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 如果需要用到一串很長且重複類型的參數也可以這樣寫 e.g., Int." />
+// 最一般的寫法 func fooBar() -&gt; String { return &#34;foo bar&#34; } // 甚至可以不寫 return func fooBar() -&gt; String { &#34;foo bar&#34; } 參數標籤    參數前面都可以自訂標籤，在呼叫的該 func 時，xcode 會自動帶出前述標籤，如果想省略也可改為 _ 底線
+// 參數標籤可以自定義 func fooBar(with params: Int) { } fooBar(label: 1) // 省略標籤 func fooBar(_ params: Int) { } fooBar(1) 預設參數值    可在 func 的參數設定預設值，在呼叫時就可省略不寫
+func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic)    如果需要用到一串很長且重複類型的參數也可以這樣寫 e." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pqteru.github.io/posts/2021-01-22-swift-functions/" />
 <meta property="article:published_time" content="2021-01-22T17:21:09+08:00" />
@@ -39,15 +42,12 @@ func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 
       <link rel="canonical" href="https://pqteru.github.io/posts/2021-01-22-swift-functions/">
     
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
-      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -56,7 +56,7 @@ func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 
       
         
         
-        <link rel="stylesheet" href="/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
       
     
 
@@ -70,11 +70,6 @@ func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    
-      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
-        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
-    
-
     <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
@@ -82,9 +77,7 @@ func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 
   
     
   
-  <body class="colorscheme-auto"
-        onload=" twemoji.parse(document.body); "
-  >
+  <body class="preload-transitions colorscheme-auto">
     
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -129,7 +122,11 @@ func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Swift Functions 的兩三事</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://pqteru.github.io/posts/2021-01-22-swift-functions/">
+              Swift Functions 的兩三事
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
@@ -144,16 +141,23 @@ func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 
               2-minute read
             </span>
           </div>
-          
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/david/">david</a></div>
+
           <div class="categories">
   <i class="fa fa-folder" aria-hidden="true"></i>
     <a href="/categories/swift-docs/">swift docs</a></div>
 
           <div class="tags">
   <i class="fa fa-tag" aria-hidden="true"></i>
-    <a href="/tags/swift/">swift</a>
+    <span class="tag">
+      <a href="/tags/swift/">swift</a>
+    </span>
       <span class="separator">•</span>
-    <a href="/tags/functions/">functions</a></div>
+    <span class="tag">
+      <a href="/tags/functions/">functions</a>
+    </span></div>
 
         </div>
       </header>
@@ -170,7 +174,12 @@ func fooBar(with params: Int = 1) { } fooBar() 不限數量的參數 (Variadic) 
 <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">fooBar</span>() -&gt; <span style="color:#8be9fd;font-style:italic">String</span> {
     <span style="color:#f1fa8c">&#34;foo bar&#34;</span>
 }
-</code></pre></div><h2 id="參數標籤">參數標籤</h2>
+</code></pre></div><h2 id="參數標籤">
+  參數標籤
+  <a class="heading-link" href="#%e5%8f%83%e6%95%b8%e6%a8%99%e7%b1%a4">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>參數前面都可以自訂標籤，在呼叫的該 func 時，xcode 會自動帶出前述標籤，如果想省略也可改為 <code>_</code> 底線</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// 參數標籤可以自定義</span>
 <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">fooBar</span>(with params: <span style="color:#8be9fd;font-style:italic">Int</span>) { }
@@ -179,18 +188,33 @@ fooBar(label: <span style="color:#bd93f9">1</span>)
 <span style="color:#6272a4">// 省略標籤</span>
 <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">fooBar</span>(<span style="color:#ff79c6">_</span> params: <span style="color:#8be9fd;font-style:italic">Int</span>) { }
 fooBar(<span style="color:#bd93f9">1</span>)
-</code></pre></div><h2 id="預設參數值">預設參數值</h2>
+</code></pre></div><h2 id="預設參數值">
+  預設參數值
+  <a class="heading-link" href="#%e9%a0%90%e8%a8%ad%e5%8f%83%e6%95%b8%e5%80%bc">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>可在 func 的參數設定預設值，在呼叫時就可省略不寫</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">fooBar</span>(with params: <span style="color:#8be9fd;font-style:italic">Int</span> = <span style="color:#bd93f9">1</span>) { }
 fooBar()
-</code></pre></div><h2 id="不限數量的參數-variadic">不限數量的參數 (Variadic)</h2>
+</code></pre></div><h2 id="不限數量的參數-variadic">
+  不限數量的參數 (Variadic)
+  <a class="heading-link" href="#%e4%b8%8d%e9%99%90%e6%95%b8%e9%87%8f%e7%9a%84%e5%8f%83%e6%95%b8-variadic">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>如果需要用到一串很長且重複類型的參數也可以這樣寫 e.g., <code>Int...</code>, <code>Double...</code>, <code>String...</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">fooBar</span>(with params: <span style="color:#8be9fd;font-style:italic">Int</span>...) {
     print(<span style="color:#f1fa8c">&#34;params: </span><span style="color:#f1fa8c">\(</span>params<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>)
 }
 fooBar(label: <span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">4</span>)
 <span style="color:#6272a4">// params: [1, 2, 3, 4]</span>
-</code></pre></div><h2 id="in-out-參數">In-Out 參數</h2>
+</code></pre></div><h2 id="in-out-參數">
+  In-Out 參數
+  <a class="heading-link" href="#in-out-%e5%8f%83%e6%95%b8">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>在參數前面加上 <code>inout</code> 這個修飾表示，就可以在函式內部改變參數值同時作用到傳入的變數，調用時，參數前面要加上 <code>&amp;</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">swap</span>(<span style="color:#ff79c6">_</span> a: <span style="color:#ff79c6">inout</span> <span style="color:#8be9fd;font-style:italic">Int</span>, <span style="color:#ff79c6">_</span> b: <span style="color:#ff79c6">inout</span> <span style="color:#8be9fd;font-style:italic">Int</span>) {
     <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">tmp</span> = a
@@ -200,7 +224,12 @@ fooBar(label: <span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2
 <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">a</span> = <span style="color:#bd93f9">1</span>, b = <span style="color:#bd93f9">2</span>
 swap(&amp;a, &amp;b)
 print(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\(</span>a<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">, </span><span style="color:#f1fa8c">\(</span>b<span style="color:#f1fa8c">)</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#6272a4">// 2, 1</span>
-</code></pre></div><h2 id="函數型別">函數型別</h2>
+</code></pre></div><h2 id="函數型別">
+  函數型別
+  <a class="heading-link" href="#%e5%87%bd%e6%95%b8%e5%9e%8b%e5%88%a5">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>函數可以當作變數(variable)使用</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">square</span>(<span style="color:#ff79c6">_</span> a: <span style="color:#8be9fd;font-style:italic">Int</span>) -&gt; <span style="color:#8be9fd;font-style:italic">Int</span> {
     <span style="color:#ff79c6">return</span> a <span style="color:#ff79c6">*</span> a
@@ -237,7 +266,12 @@ doMath(square, <span style="color:#bd93f9">3</span>) <span style="color:#6272a4"
 <span style="color:#6272a4">// 16</span>
 <span style="color:#6272a4">// 8</span>
 <span style="color:#6272a4">// 4</span>
-</code></pre></div><h2 id="overloading">Overloading</h2>
+</code></pre></div><h2 id="overloading">
+  Overloading
+  <a class="heading-link" href="#overloading">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>Swift 函數支援多載的使用方式：</p>
 <ol>
 <li>同名稱，但回傳型別不同</li>
@@ -268,7 +302,12 @@ doMath(square, <span style="color:#bd93f9">3</span>) <span style="color:#6272a4"
 }
 <span style="color:#6272a4">// compiler error</span>
 <span style="color:#6272a4">// Method &#39;foo&#39; with Objective-C selector &#39;foo:&#39; conflicts with previous declaration with the same Objective-C selector</span>
-</code></pre></div><h2 id="reference">Reference</h2>
+</code></pre></div><h2 id="reference">
+  Reference
+  <a class="heading-link" href="#reference">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <ul>
 <li><a href="https://docs.swift.org/swift-book/LanguageGuide/Functions.html" target="_blank">
     Functions - Swift.org
@@ -312,36 +351,32 @@ doMath(square, <span style="color:#bd93f9">3</span>) <span style="color:#6272a4"
 
       </div>
 
-      
-  <footer class="footer">
-    <section class="container">
-      
-      
-        ©
-        
-        2021
-         pqteru 
-      
-      
-         · 
-        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-      
-      
-    </section>
-  </footer>
-
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2021 -
+    
+    2022
+     pqteru 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
 
     </main>
 
     
       
-        
-        <script src="/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
-      
+      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
     
 
     
-      <script src="/js/custom.js"></script>
+      
+        
+        <script src="/js/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="></script>
+      
     
 
     
@@ -358,6 +393,10 @@ if (!doNotTrack) {
 }
 </script>
 
+
+    
+
+    
 
     
 

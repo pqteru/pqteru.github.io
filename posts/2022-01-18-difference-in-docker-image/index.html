@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="pqteru">
+    <meta name="description" content="許多人在從 DockerHub  pull image 下來時，可能都會有疑問到底要拉哪個鏡像下來？光是 python  就有 Alpine, Slim, Stretch, Buster, Jessie, Bullseye 等等的版本，甚至還帶上 -slim, -windowsservicecore 的子標籤，如果你也有跟我一樣的疑問的話，希望這篇可以幫助你去了解這些鏡像得不同之處，這篇舉 python 的鏡像為例來做個說明。
+ Version and latest Stretch/Buster/Jessie  -slim -alpine -windowsservercore   結論：有選擇障礙怎麼辦？ 查看各個 image 的 size    Version and latest    通常就是冒號之後帶上版本，如 python:3.10.1，這也是官方推的正式版本，檔案通常比較大，如果不確定要使用哪個安裝這個就對了，最安全支援度也是最廣。盡量不要使用 latest 的 image，因為每次 build 都會拉最新版的下來，可能會遇到很多不可預期的問題，最好是指定一個版本。
+Stretch/Buster/Jessie    這些名字其實是代表 Debian Release  的版本代號，Buster 是 Debian version 10 與衍伸的代號，Stretch 是版本 9，Jessie 則是版本 8 的代號。開發中的代號是 Bullseye 跟 Bookworm。端看使用環境來選擇相對的版本。">
+    <meta name="keywords" content="app,web,ios,blog,developer,note">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker image 到底要 pull 哪一個？"/>
+<meta name="twitter:description" content="許多人在從 DockerHub  pull image 下來時，可能都會有疑問到底要拉哪個鏡像下來？光是 python  就有 Alpine, Slim, Stretch, Buster, Jessie, Bullseye 等等的版本，甚至還帶上 -slim, -windowsservicecore 的子標籤，如果你也有跟我一樣的疑問的話，希望這篇可以幫助你去了解這些鏡像得不同之處，這篇舉 python 的鏡像為例來做個說明。
+ Version and latest Stretch/Buster/Jessie  -slim -alpine -windowsservercore   結論：有選擇障礙怎麼辦？ 查看各個 image 的 size    Version and latest    通常就是冒號之後帶上版本，如 python:3.10.1，這也是官方推的正式版本，檔案通常比較大，如果不確定要使用哪個安裝這個就對了，最安全支援度也是最廣。盡量不要使用 latest 的 image，因為每次 build 都會拉最新版的下來，可能會遇到很多不可預期的問題，最好是指定一個版本。
+Stretch/Buster/Jessie    這些名字其實是代表 Debian Release  的版本代號，Buster 是 Debian version 10 與衍伸的代號，Stretch 是版本 9，Jessie 則是版本 8 的代號。開發中的代號是 Bullseye 跟 Bookworm。端看使用環境來選擇相對的版本。"/>
+
+    <meta property="og:title" content="Docker image 到底要 pull 哪一個？" />
+<meta property="og:description" content="許多人在從 DockerHub  pull image 下來時，可能都會有疑問到底要拉哪個鏡像下來？光是 python  就有 Alpine, Slim, Stretch, Buster, Jessie, Bullseye 等等的版本，甚至還帶上 -slim, -windowsservicecore 的子標籤，如果你也有跟我一樣的疑問的話，希望這篇可以幫助你去了解這些鏡像得不同之處，這篇舉 python 的鏡像為例來做個說明。
+ Version and latest Stretch/Buster/Jessie  -slim -alpine -windowsservercore   結論：有選擇障礙怎麼辦？ 查看各個 image 的 size    Version and latest    通常就是冒號之後帶上版本，如 python:3.10.1，這也是官方推的正式版本，檔案通常比較大，如果不確定要使用哪個安裝這個就對了，最安全支援度也是最廣。盡量不要使用 latest 的 image，因為每次 build 都會拉最新版的下來，可能會遇到很多不可預期的問題，最好是指定一個版本。
+Stretch/Buster/Jessie    這些名字其實是代表 Debian Release  的版本代號，Buster 是 Debian version 10 與衍伸的代號，Stretch 是版本 9，Jessie 則是版本 8 的代號。開發中的代號是 Bullseye 跟 Bookworm。端看使用環境來選擇相對的版本。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pqteru.github.io/posts/2022-01-18-difference-in-docker-image/" />
+<meta property="article:published_time" content="2022-01-18T10:04:17+08:00" />
+<meta property="article:modified_time" content="2022-01-18T10:04:17+08:00" />
+
+
+    <title>
+  Docker image 到底要 pull 哪一個？ · InstaCoding
+</title>
+
+    
+      <link rel="canonical" href="https://pqteru.github.io/posts/2022-01-18-difference-in-docker-image/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      InstaCoding
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://pqteru.github.io/posts/2022-01-18-difference-in-docker-image/">
+              Docker image 到底要 pull 哪一個？
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2022-01-18T10:04:17&#43;08:00'>
+                January 18, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/david/">david</a></div>
+
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/docker/">docker</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/docker/">docker</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/image/">image</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>許多人在從 <a href="https://hub.docker.com/" target="_blank">
+    DockerHub
+</a> pull image 下來時，可能都會有疑問到底要拉哪個鏡像下來？光是 <a href="https://hub.docker.com/_/python?tab=description" target="_blank">
+    python
+</a> 就有 <code>Alpine</code>, <code>Slim</code>, <code>Stretch</code>, <code>Buster</code>, <code>Jessie</code>, <code>Bullseye</code> 等等的版本，甚至還帶上 <code>-slim</code>, <code>-windowsservicecore</code> 的子標籤，如果你也有跟我一樣的疑問的話，希望這篇可以幫助你去了解這些鏡像得不同之處，這篇舉 <code>python</code> 的鏡像為例來做個說明。</p>
+<div class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#version-and-latest">Version and latest</a></li>
+    <li><a href="#stretchbusterjessie">Stretch/Buster/Jessie</a>
+      <ul>
+        <li><a href="#-slim">-slim</a></li>
+        <li><a href="#-alpine">-alpine</a></li>
+        <li><a href="#-windowsservercore">-windowsservercore</a></li>
+      </ul>
+    </li>
+    <li><a href="#結論有選擇障礙怎麼辦">結論：有選擇障礙怎麼辦？</a></li>
+    <li><a href="#查看各個-image-的-size">查看各個 image 的 size</a></li>
+  </ul>
+</nav>
+</div>
+<h2 id="version-and-latest">
+  Version and latest
+  <a class="heading-link" href="#version-and-latest">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>通常就是冒號之後帶上版本，如 <code>python:3.10.1</code>，這也是官方推的正式版本，檔案通常比較大，如果不確定要使用哪個安裝這個就對了，最安全支援度也是最廣。盡量不要使用 <code>latest</code> 的 image，因為每次 build 都會拉最新版的下來，可能會遇到很多不可預期的問題，最好是指定一個版本。</p>
+<h2 id="stretchbusterjessie">
+  Stretch/Buster/Jessie
+  <a class="heading-link" href="#stretchbusterjessie">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>這些名字其實是代表 <code>Debian</code> <a href="https://wiki.debian.org/DebianReleases" target="_blank">
+    Release
+</a> 的版本代號，<code>Buster</code> 是 Debian version 10 與衍伸的代號，<code>Stretch</code> 是版本 9，<code>Jessie</code> 則是版本 8 的代號。開發中的代號是 <code>Bullseye</code> 跟 <code>Bookworm</code>。端看使用環境來選擇相對的版本。</p>
+<h3 id="-slim">
+  -slim
+  <a class="heading-link" href="#-slim">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>slim 通常指是安裝最低所需相依套件的版本，如果你有空間上的考量則可以使用，但開發時可能需要多注意所使用的軟體是否提供支援。</p>
+<h3 id="-alpine">
+  -alpine
+  <a class="heading-link" href="#-alpine">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p><a href="https://www.alpinelinux.org/" target="_blank">
+    alpine
+</a> 是一套開源的 Linux 專案，為了在 <code>container</code> 開發而生，檔案 size 超小，但開發時一樣要注意所使用的軟體是否提供支援，由於支援的更少，更容易遇到相容性的問題。可以透過定義 external package 寫在 <code>Dockerfile</code> 並安裝來支援</p>
+<blockquote>
+<p>Alpine 是使用 <code>apk</code> 指令來安裝套件，而非常用的 <code>apt-get</code> 指令。</p>
+</blockquote>
+<h3 id="-windowsservercore">
+  -windowsservercore
+  <a class="heading-link" href="#-windowsservercore">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>顧名思義就是 <code>windows</code> 環境下安裝的版本</p>
+<h2 id="結論有選擇障礙怎麼辦">
+  結論：有選擇障礙怎麼辦？
+  <a class="heading-link" href="#%e7%b5%90%e8%ab%96%e6%9c%89%e9%81%b8%e6%93%87%e9%9a%9c%e7%a4%99%e6%80%8e%e9%ba%bc%e8%be%a6">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ul>
+<li>懶人並求快、安全，安裝完整鏡像版</li>
+<li>有空間上的考量，選擇 slim 版</li>
+<li>時間滿出來，可以完整測試並追求極致空間使用，選擇 alpine</li>
+</ul>
+<h2 id="查看各個-image-的-size">
+  查看各個 image 的 size
+  <a class="heading-link" href="#%e6%9f%a5%e7%9c%8b%e5%90%84%e5%80%8b-image-%e7%9a%84-size">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>可以把每個各種不同的版本 pull 下來看看 size</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull --quiet python:3.10.1
+docker pull --quiet python:3.10.1-buster
+docker pull --quiet python:3.10.1-slim
+docker pull --quiet python:3.10.1-alpine
+docker images
+</code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "instacoding" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2021 -
+    
+    2022
+     pqteru 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
+    
+
+    
+      
+        
+        <script src="/js/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="></script>
+      
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-39516340-6', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

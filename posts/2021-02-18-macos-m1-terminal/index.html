@@ -5,12 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
 
     <meta name="author" content="pqteru">
     <meta name="description" content="最近換了搭載 M1 晶片的 mac mini, M1 是基於 ARM 指令集架構的自研晶片系統，所以再安裝一些平常在使用的軟體會到無法編譯的問題，想要安裝就需要透過 Rosetta 這編譯軟體來幫忙。
 Rosetta  是蘋果電腦公司發布的在 Mac OS X 上的一個二進位編譯器軟體，2020年 macOS 11.0 Big Sur 內建 Rosetta 2 可以讓在 Intel 平台上開發的軟體在 ARM 架構的 mac 上順利執行
 如果尚未安裝 Rosetta 可執行
-softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
+softwareupdate --install-rosetta Homebrew    Homebrew  是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
  安裝 arm64 的版本  # 預設路徑會安裝在 `/opt/homebrew/` 底下 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 安裝 x86_64 的版本  # 路徑會裝在 `/usr/local/bin` 底下 # 安裝 x86_64 的軟體需要下 arch --x86_64 的指令 arch --x86_64 /bin/bash -c &#34;$(curl -fsSL https://raw.">
     <meta name="keywords" content="app,web,ios,blog,developer,note">
 
@@ -19,14 +22,14 @@ softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程
 <meta name="twitter:description" content="最近換了搭載 M1 晶片的 mac mini, M1 是基於 ARM 指令集架構的自研晶片系統，所以再安裝一些平常在使用的軟體會到無法編譯的問題，想要安裝就需要透過 Rosetta 這編譯軟體來幫忙。
 Rosetta  是蘋果電腦公司發布的在 Mac OS X 上的一個二進位編譯器軟體，2020年 macOS 11.0 Big Sur 內建 Rosetta 2 可以讓在 Intel 平台上開發的軟體在 ARM 架構的 mac 上順利執行
 如果尚未安裝 Rosetta 可執行
-softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
+softwareupdate --install-rosetta Homebrew    Homebrew  是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
  安裝 arm64 的版本  # 預設路徑會安裝在 `/opt/homebrew/` 底下 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 安裝 x86_64 的版本  # 路徑會裝在 `/usr/local/bin` 底下 # 安裝 x86_64 的軟體需要下 arch --x86_64 的指令 arch --x86_64 /bin/bash -c &#34;$(curl -fsSL https://raw."/>
 
     <meta property="og:title" content="Apple M1 安裝 Homebrew &amp; zsh 設定" />
 <meta property="og:description" content="最近換了搭載 M1 晶片的 mac mini, M1 是基於 ARM 指令集架構的自研晶片系統，所以再安裝一些平常在使用的軟體會到無法編譯的問題，想要安裝就需要透過 Rosetta 這編譯軟體來幫忙。
 Rosetta  是蘋果電腦公司發布的在 Mac OS X 上的一個二進位編譯器軟體，2020年 macOS 11.0 Big Sur 內建 Rosetta 2 可以讓在 Intel 平台上開發的軟體在 ARM 架構的 mac 上順利執行
 如果尚未安裝 Rosetta 可執行
-softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
+softwareupdate --install-rosetta Homebrew    Homebrew  是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)
  安裝 arm64 的版本  # 預設路徑會安裝在 `/opt/homebrew/` 底下 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 安裝 x86_64 的版本  # 路徑會裝在 `/usr/local/bin` 底下 # 安裝 x86_64 的軟體需要下 arch --x86_64 的指令 arch --x86_64 /bin/bash -c &#34;$(curl -fsSL https://raw." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pqteru.github.io/posts/2021-02-18-macos-m1-terminal/" />
@@ -42,15 +45,12 @@ softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程
       <link rel="canonical" href="https://pqteru.github.io/posts/2021-02-18-macos-m1-terminal/">
     
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
-      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -59,7 +59,7 @@ softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程
       
         
         
-        <link rel="stylesheet" href="/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
       
     
 
@@ -73,11 +73,6 @@ softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    
-      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
-        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
-    
-
     <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
@@ -85,9 +80,7 @@ softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程
   
     
   
-  <body class="colorscheme-auto"
-        onload=" twemoji.parse(document.body); "
-  >
+  <body class="preload-transitions colorscheme-auto">
     
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -132,7 +125,11 @@ softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Apple M1 安裝 Homebrew &amp; zsh 設定</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://pqteru.github.io/posts/2021-02-18-macos-m1-terminal/">
+              Apple M1 安裝 Homebrew &amp; zsh 設定
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
@@ -147,18 +144,27 @@ softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程
               2-minute read
             </span>
           </div>
-          
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/david/">david</a></div>
+
           <div class="categories">
   <i class="fa fa-folder" aria-hidden="true"></i>
     <a href="/categories/terminal/">terminal</a></div>
 
           <div class="tags">
   <i class="fa fa-tag" aria-hidden="true"></i>
-    <a href="/tags/m1/">m1</a>
+    <span class="tag">
+      <a href="/tags/m1/">m1</a>
+    </span>
       <span class="separator">•</span>
-    <a href="/tags/zsh/">zsh</a>
+    <span class="tag">
+      <a href="/tags/zsh/">zsh</a>
+    </span>
       <span class="separator">•</span>
-    <a href="/tags/homebrew/">homebrew</a></div>
+    <span class="tag">
+      <a href="/tags/homebrew/">homebrew</a>
+    </span></div>
 
         </div>
       </header>
@@ -171,7 +177,12 @@ softwareupdate --install-rosetta Homebrew Homebrew  是開發 Apple 軟體工程
 </a> 是蘋果電腦公司發布的在 Mac OS X 上的一個二進位編譯器軟體，2020年 macOS 11.0 Big Sur 內建 Rosetta 2 可以讓在 Intel 平台上開發的軟體在 ARM 架構的 mac 上順利執行</p>
 <p>如果尚未安裝 Rosetta 可執行</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">softwareupdate --install-rosetta
-</code></pre></div><h2 id="homebrew">Homebrew</h2>
+</code></pre></div><h2 id="homebrew">
+  Homebrew
+  <a class="heading-link" href="#homebrew">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p><a href="https://brew.sh/index_zh-tw" target="_blank">
     Homebrew
 </a> 是開發 Apple 軟體工程師必備的套件管理，我們會安裝兩個版本，一個是原生 M1 架構，另一個則是 x86_64 架構下使用 (在支援 M1 的軟體比較成熟之前，安裝 x86_64 的軟體是個過渡時期的解決方案)</p>
@@ -200,7 +211,12 @@ arch --x86_64 /bin/bash -c <span style="color:#f1fa8c">&#34;</span><span style="
 <span style="color:#6272a4"># /opt/homebrew</span>
 brow --prefix
 <span style="color:#6272a4"># /usr/local</span>
-</code></pre></div><h2 id="zsh">Zsh</h2>
+</code></pre></div><h2 id="zsh">
+  Zsh
+  <a class="heading-link" href="#zsh">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p><a href="https://zh.wikipedia.org/wiki/Z_shell" target="_blank">
     Z shell（Zsh）
 </a> 如同 bash 一樣是一個命令直譯器，其他還有 <a href="https://fishshell.com/" target="_blank">
@@ -211,7 +227,12 @@ brow --prefix
 <li>「登入 Shell 」改為 <code>/bin/zsh/</code> 保存之後</li>
 <li>重新開啟 terminal 就是 <code>zsh</code> 了</li>
 </ol>
-<h2 id="nvm">nvm</h2>
+<h2 id="nvm">
+  nvm
+  <a class="heading-link" href="#nvm">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>因為我們會安裝一個 <a href="https://github.com/sindresorhus/pure" target="_blank">
     pure-prompt
 </a> 簡潔的 zsh 樣板，會透過 <code>npm</code> 來安裝，所以這邊會先安裝個 node 的版本控制軟體 - <a href="https://github.com/nvm-sh/nvm" target="_blank">
@@ -241,7 +262,12 @@ nvm use &lt;version&gt;
 nvm uninstall &lt;version&gt;
 <span style="color:#6272a4">## check npm installed list global </span>
 npm list -g --depth <span style="color:#bd93f9">0</span>
-</code></pre></div><h2 id="pure-prompt">pure-prompt</h2>
+</code></pre></div><h2 id="pure-prompt">
+  pure-prompt
+  <a class="heading-link" href="#pure-prompt">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># 安裝 pure-prompt</span>
 npm install -g pure-prompt
 </code></pre></div><p>最後打開 <code>~/.zshrc</code> 把最基本的範例貼上</p>
@@ -266,7 +292,12 @@ prompt pure
     zsh prompt expansion
 </a> 看看相關說明</p>
 <p>最後 run <code>source ~/.zshrc</code> 就可以有非常簡潔的 zsh 終端機！</p>
-<h2 id="reference">Reference</h2>
+<h2 id="reference">
+  Reference
+  <a class="heading-link" href="#reference">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/64951024/how-can-i-run-two-isolated-installations-of-homebrew" target="_blank">
     two-isolated-installations-of-homebrew
@@ -313,36 +344,32 @@ prompt pure
 
       </div>
 
-      
-  <footer class="footer">
-    <section class="container">
-      
-      
-        ©
-        
-        2021
-         pqteru 
-      
-      
-         · 
-        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-      
-      
-    </section>
-  </footer>
-
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2021 -
+    
+    2022
+     pqteru 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
 
     </main>
 
     
       
-        
-        <script src="/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
-      
+      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
     
 
     
-      <script src="/js/custom.js"></script>
+      
+        
+        <script src="/js/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="></script>
+      
     
 
     
@@ -359,6 +386,10 @@ if (!doNotTrack) {
 }
 </script>
 
+
+    
+
+    
 
     
 

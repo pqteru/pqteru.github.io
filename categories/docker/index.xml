@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on InstaCoding</title>
+    <link>https://pqteru.github.io/categories/docker/</link>
+    <description>Recent content in docker on InstaCoding</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Tue, 18 Jan 2022 10:04:17 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker image 到底要 pull 哪一個？</title>
+      <link>https://pqteru.github.io/posts/2022-01-18-difference-in-docker-image/</link>
+      <pubDate>Tue, 18 Jan 2022 10:04:17 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2022-01-18-difference-in-docker-image/</guid>
+      <description>許多人在從 DockerHub  pull image 下來時，可能都會有疑問到底要拉哪個鏡像下來？光是 python  就有 Alpine, Slim, Stretch, Buster, Jessie, Bullseye 等等的版本，甚至還帶上 -slim, -windowsservicecore 的子標籤，如果你也有跟我一樣的疑問的話，希望這篇可以幫助你去了解這些鏡像得不同之處，這篇舉 python 的鏡像為例來做個說明。
+ Version and latest Stretch/Buster/Jessie  -slim -alpine -windowsservercore   結論：有選擇障礙怎麼辦？ 查看各個 image 的 size    Version and latest    通常就是冒號之後帶上版本，如 python:3.10.1，這也是官方推的正式版本，檔案通常比較大，如果不確定要使用哪個安裝這個就對了，最安全支援度也是最廣。盡量不要使用 latest 的 image，因為每次 build 都會拉最新版的下來，可能會遇到很多不可預期的問題，最好是指定一個版本。
+Stretch/Buster/Jessie    這些名字其實是代表 Debian Release  的版本代號，Buster 是 Debian version 10 與衍伸的代號，Stretch 是版本 9，Jessie 則是版本 8 的代號。開發中的代號是 Bullseye 跟 Bookworm。端看使用環境來選擇相對的版本。</description>
+    </item>
+    
+  </channel>
+</rss>

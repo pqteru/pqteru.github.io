@@ -5,21 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
 
     <meta name="author" content="pqteru">
-    <meta name="description" content="Structures struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
+    <meta name="description" content="Structures    struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
 struct SWeather { var location: String var minTemp: Double var maxTemp: Double } let s = SWeather(location: &#34;Taipei&#34;, minTemp: 12, maxTemp: 15) 接著定義一個 ss 來 assign to s
 var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:">
     <meta name="keywords" content="app,web,ios,blog,developer,note">
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Struct vs Class in Swift"/>
-<meta name="twitter:description" content="Structures struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
+<meta name="twitter:description" content="Structures    struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
 struct SWeather { var location: String var minTemp: Double var maxTemp: Double } let s = SWeather(location: &#34;Taipei&#34;, minTemp: 12, maxTemp: 15) 接著定義一個 ss 來 assign to s
 var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:"/>
 
     <meta property="og:title" content="Struct vs Class in Swift" />
-<meta property="og:description" content="Structures struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
+<meta property="og:description" content="Structures    struct 跟 enum 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type
 struct SWeather { var location: String var minTemp: Double var maxTemp: Double } let s = SWeather(location: &#34;Taipei&#34;, minTemp: 12, maxTemp: 15) 接著定義一個 ss 來 assign to s
 var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:" />
 <meta property="og:type" content="article" />
@@ -36,15 +39,12 @@ var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:" />
       <link rel="canonical" href="https://pqteru.github.io/posts/2021-01-17-struct-vs-class-in-swift/">
     
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
-      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -53,7 +53,7 @@ var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:" />
       
         
         
-        <link rel="stylesheet" href="/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
       
     
 
@@ -67,11 +67,6 @@ var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    
-      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
-        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
-    
-
     <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
@@ -79,9 +74,7 @@ var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:" />
   
     
   
-  <body class="colorscheme-auto"
-        onload=" twemoji.parse(document.body); "
-  >
+  <body class="preload-transitions colorscheme-auto">
     
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -126,7 +119,11 @@ var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:" />
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Struct vs Class in Swift</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://pqteru.github.io/posts/2021-01-17-struct-vs-class-in-swift/">
+              Struct vs Class in Swift
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
@@ -141,25 +138,39 @@ var ss = s ss.minTemp = 10 # 設 minTemp 為 10 output:" />
               2-minute read
             </span>
           </div>
-          
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/david/">david</a></div>
+
           <div class="categories">
   <i class="fa fa-folder" aria-hidden="true"></i>
     <a href="/categories/swift-docs/">swift docs</a></div>
 
           <div class="tags">
   <i class="fa fa-tag" aria-hidden="true"></i>
-    <a href="/tags/swift/">swift</a>
+    <span class="tag">
+      <a href="/tags/swift/">swift</a>
+    </span>
       <span class="separator">•</span>
-    <a href="/tags/struct/">struct</a>
+    <span class="tag">
+      <a href="/tags/struct/">struct</a>
+    </span>
       <span class="separator">•</span>
-    <a href="/tags/class/">class</a></div>
+    <span class="tag">
+      <a href="/tags/class/">class</a>
+    </span></div>
 
         </div>
       </header>
 
       <div>
         
-        <h2 id="structures">Structures</h2>
+        <h2 id="structures">
+  Structures
+  <a class="heading-link" href="#structures">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p><code>struct</code> 跟 <code>enum</code> 是 value type instance, value type 是指當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，他的值是被 copied 過去的，在 swift 裡面 intergers, floating-point numbers, booleans, strings, arrays and dictionaries 皆為 value type</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">struct</span> <span style="color:#50fa7b">SWeather</span> {
     <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">location</span>: <span style="color:#8be9fd;font-style:italic">String</span>
@@ -183,7 +194,12 @@ ss.minTemp <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</
   - location : <span style="color:#f1fa8c">&#34;Taipei&#34;</span>
   - minTemp : 10.0 <span style="color:#6272a4"># ss 的 minTemp 已變為 10</span>
   - maxTemp : 15.0
-</code></pre></div><h2 id="classes">Classes</h2>
+</code></pre></div><h2 id="classes">
+  Classes
+  <a class="heading-link" href="#classes">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p><code>class</code> 是 reference type instance, 不同於 structures，當被 assign 到 constant 或 variable，或當作參數傳遞到 function 時，會儲存一個參考位址 reference 到同一個實例</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">CWeather</span> {
     <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">location</span>: <span style="color:#8be9fd;font-style:italic">String</span>?
@@ -207,7 +223,12 @@ d.minTemp = <span style="color:#bd93f9">13</span>
 
 <span style="color:#ff79c6">(</span>lldb<span style="color:#ff79c6">)</span> po d.minTemp
 13.0
-</code></pre></div><h3 id="相同的地方">相同的地方</h3>
+</code></pre></div><h3 id="相同的地方">
+  相同的地方
+  <a class="heading-link" href="#%e7%9b%b8%e5%90%8c%e7%9a%84%e5%9c%b0%e6%96%b9">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <ul>
 <li>可定義 property 並保存值</li>
 <li>可定義 methods</li>
@@ -216,7 +237,12 @@ d.minTemp = <span style="color:#bd93f9">13</span>
 <li>可使用 extension 來延伸功能性</li>
 <li>可遵從 Protocols</li>
 </ul>
-<h3 id="不同的地方">不同的地方</h3>
+<h3 id="不同的地方">
+  不同的地方
+  <a class="heading-link" href="#%e4%b8%8d%e5%90%8c%e7%9a%84%e5%9c%b0%e6%96%b9">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
 <p>Classes 還可以做到</p>
 <ul>
 <li>繼承</li>
@@ -225,7 +251,12 @@ d.minTemp = <span style="color:#bd93f9">13</span>
 <li>Reference count</li>
 </ul>
 <p>Classes 雖然提供更多的功能與彈性但相對的也提升了程式的複雜度，若在一般使用情境下，建議使用 structures 跟 enumerations 來定義，可以減少擔心 memory leaks 或多緒執行下可能造成的 data racing (access/modify)，而在適當的時機或需要時才使用 classes 來定義。</p>
-<h2 id="使用情境">使用情境</h2>
+<h2 id="使用情境">
+  使用情境
+  <a class="heading-link" href="#%e4%bd%bf%e7%94%a8%e6%83%85%e5%a2%83">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <p>使用 <code>struct</code> 的情境：</p>
 <ul>
 <li>預設的建模方式，適用在大部分情況</li>
@@ -240,7 +271,12 @@ d.minTemp = <span style="color:#bd93f9">13</span>
 <li>實例的 lifetime 與外部影響有關 (e.g., <code>TemporaryFile</code>)</li>
 <li>實例只是&quot;接收器&quot; 指向外部狀態的 write-only 管道 (e.g. <code>CGContext</code>)</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="references">
+  References
+  <a class="heading-link" href="#references">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
 <ul>
 <li><a href="https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html" target="_blank">
     ClassesAndStructures - Swift.org
@@ -290,36 +326,32 @@ d.minTemp = <span style="color:#bd93f9">13</span>
 
       </div>
 
-      
-  <footer class="footer">
-    <section class="container">
-      
-      
-        ©
-        
-        2021
-         pqteru 
-      
-      
-         · 
-        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-      
-      
-    </section>
-  </footer>
-
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2021 -
+    
+    2022
+     pqteru 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
 
     </main>
 
     
       
-        
-        <script src="/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
-      
+      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
     
 
     
-      <script src="/js/custom.js"></script>
+      
+        
+        <script src="/js/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="></script>
+      
     
 
     
@@ -336,6 +368,10 @@ if (!doNotTrack) {
 }
 </script>
 
+
+    
+
+    
 
     
 
