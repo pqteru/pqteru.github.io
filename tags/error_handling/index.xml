@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>error_handling on InstaCoding</title>
+    <link>https://pqteru.github.io/tags/error_handling/</link>
+    <description>Recent content in error_handling on InstaCoding</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Wed, 20 Jan 2021 15:58:45 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/tags/error_handling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swift Error Handling 小筆記</title>
+      <link>https://pqteru.github.io/posts/2021-01-20-error-handling/</link>
+      <pubDate>Wed, 20 Jan 2021 15:58:45 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-01-20-error-handling/</guid>
+      <description>會造成程式 crash 的原因之一是在於拋出的 error 沒有處理或者沒有判斷，錯誤處理是對程式中的錯誤條件進行回應或是恢復的過程，swift 支援了在 runtime 時 throwing、catching、propagating 和 manipulating 的可恢復錯誤處理
+// example for throwing error in func // 處理資料的保存有許多無法預期的錯誤會產生 func save() throws { if context.hasChanges { do { try context.save() } catch { print(&amp;#34;insert failed, \(error)&amp;#34;) throw error } } } 先假設情境，在做 HTTP 連線的時候可能會有無法連線的情況發生：
+ 伺服器連線失敗 錯誤的回傳值 (在 response statusCode 200&amp;hellip;299 之外的) 資料錯誤  我們就可以把這個情況先定義成一個 RequestError
+enum RequestError { case connectionFailed // 連線失敗 case serverResponseError(statusCode: Int) // 回傳失敗 case dataError // 資料錯誤 } Representing and Throwing Errors    Handling Errors    Propagating Errors Using Throwing Functions    Handling Errors Using Do-Catch    Converting Errors to Optional Values    Disabling Error Propagation    Specifying Cleanup Actions    許多時候我們在 objc 丟入 NULL 至 error 參數，以便來判斷「是否」只有 error 產生，並不在乎該錯誤發生的原因，在 Swift 可以使用 try?</description>
+    </item>
+    
+  </channel>
+</rss>

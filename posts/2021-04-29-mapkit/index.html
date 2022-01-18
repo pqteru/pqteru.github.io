@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="pqteru">
+    <meta name="description" content="MapKit  是從 iOS 3&#43; 之後就有的 framework，主要是用來顯示、搜尋地圖並可客製化標記的功能
+ MKMapView 地圖 View MKMapItem 地圖上標點 Map SwiftUI 地圖 View  Annotating a Map with Custom Data    https://developer.apple.com/documentation/mapkit/mapkit_annotations/annotating_a_map_with_custom_data
+Annotate a map with location-specific data using default and customized annotation views and callouts.
+MKAnnotation    https://developer.apple.com/documentation/mapkit/mkannotation
+An object that adopts this protocol manages the data that you want to display on the map surface. It does not provide the visual representation displayed by the map.">
+    <meta name="keywords" content="app,web,ios,blog,developer,note">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MapKit"/>
+<meta name="twitter:description" content="MapKit  是從 iOS 3&#43; 之後就有的 framework，主要是用來顯示、搜尋地圖並可客製化標記的功能
+ MKMapView 地圖 View MKMapItem 地圖上標點 Map SwiftUI 地圖 View  Annotating a Map with Custom Data    https://developer.apple.com/documentation/mapkit/mapkit_annotations/annotating_a_map_with_custom_data
+Annotate a map with location-specific data using default and customized annotation views and callouts.
+MKAnnotation    https://developer.apple.com/documentation/mapkit/mkannotation
+An object that adopts this protocol manages the data that you want to display on the map surface. It does not provide the visual representation displayed by the map."/>
+
+    <meta property="og:title" content="MapKit" />
+<meta property="og:description" content="MapKit  是從 iOS 3&#43; 之後就有的 framework，主要是用來顯示、搜尋地圖並可客製化標記的功能
+ MKMapView 地圖 View MKMapItem 地圖上標點 Map SwiftUI 地圖 View  Annotating a Map with Custom Data    https://developer.apple.com/documentation/mapkit/mapkit_annotations/annotating_a_map_with_custom_data
+Annotate a map with location-specific data using default and customized annotation views and callouts.
+MKAnnotation    https://developer.apple.com/documentation/mapkit/mkannotation
+An object that adopts this protocol manages the data that you want to display on the map surface. It does not provide the visual representation displayed by the map." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pqteru.github.io/posts/2021-04-29-mapkit/" />
+<meta property="article:published_time" content="2021-04-29T09:43:39+08:00" />
+<meta property="article:modified_time" content="2021-04-29T09:43:39+08:00" />
+
+
+    <title>
+  MapKit · InstaCoding
+</title>
+
+    
+      <link rel="canonical" href="https://pqteru.github.io/posts/2021-04-29-mapkit/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      InstaCoding
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://pqteru.github.io/posts/2021-04-29-mapkit/">
+              MapKit
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-04-29T09:43:39&#43;08:00'>
+                April 29, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/david/">david</a></div>
+
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/mapkit/">mapkit</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/swift/">swift</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/mapkit/">mapkit</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p><a href="https://developer.apple.com/documentation/mapkit" target="_blank">
+    MapKit
+</a> 是從 iOS 3+ 之後就有的 framework，主要是用來顯示、搜尋地圖並可客製化標記的功能</p>
+<ul>
+<li><code>MKMapView</code> 地圖 View</li>
+<li><code>MKMapItem</code> 地圖上標點</li>
+<li><code>Map</code> SwiftUI 地圖 View</li>
+</ul>
+<h2 id="annotating-a-map-with-custom-data">
+  Annotating a Map with Custom Data
+  <a class="heading-link" href="#annotating-a-map-with-custom-data">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p><a href="https://developer.apple.com/documentation/mapkit/mapkit_annotations/annotating_a_map_with_custom_data">https://developer.apple.com/documentation/mapkit/mapkit_annotations/annotating_a_map_with_custom_data</a></p>
+<p>Annotate a map with location-specific data using default and customized annotation views and callouts.</p>
+<h2 id="mkannotation">
+  MKAnnotation
+  <a class="heading-link" href="#mkannotation">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p><a href="https://developer.apple.com/documentation/mapkit/mkannotation">https://developer.apple.com/documentation/mapkit/mkannotation</a></p>
+<p>An object that adopts this protocol manages the data that you want to display on the map surface. It does not provide the visual representation displayed by the map. Instead, your map view&rsquo;s delegate provides the <code>MKAnnotationView</code> objects needed to display the content of your annotations. When you want to display content at a specific point on the map, add an annotation object to the map view. When the annotation&rsquo;s coordinate is visible on the map, the map view asks its delegate to provide an appropriate view to display any content associated with the annotation. You implement the <code>mapView(_:viewFor:)</code> method of the delegate to provide that view.</p>
+<h2 id="mkannotationview">
+  MKAnnotationView
+  <a class="heading-link" href="#mkannotationview">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Annotation views are loosely coupled to a corresponding annotation object, which is an object that conforms to the <code>MKAnnotation</code> protocol. When an annotation’s coordinate point is in the map&rsquo;s visible region, the map view asks its delegate to provide a corresponding annotation view. Annotation views may be recycled later and put into a reuse queue that is maintained by the map view.</p>
+<ul>
+<li><code>canShowCallout</code>: A Boolean value indicating whether the annotation view is able to display extra information in a callout bubble.</li>
+<li><code>leftCalloutAccessoryView</code>: The view to display on the left side of the standard callout bubble.</li>
+<li><code>rightCalloutAccessoryView</code>: The view to display on the right side of the standard callout bubble.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">extension</span> <span style="color:#50fa7b">RKYMapSearchViewController</span>: MKMapViewDelegate {
+    <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">mapView</span>(<span style="color:#ff79c6">_</span> mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        <span style="color:#ff79c6">guard</span>
+            <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">view</span> = view <span style="color:#ff79c6">as</span>? RKYClusterAnnotationView, view.item.count <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>
+        <span style="color:#ff79c6">else</span> {
+            <span style="color:#ff79c6">return</span>
+        }
+        <span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#8be9fd;font-style:italic">hidList</span> = [<span style="color:#8be9fd;font-style:italic">String</span>]()
+        <span style="color:#ff79c6">for</span> obj <span style="color:#ff79c6">in</span> view.item {
+            <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">obj</span> = obj <span style="color:#ff79c6">as</span>? [<span style="color:#8be9fd;font-style:italic">String</span>: <span style="color:#8be9fd;font-style:italic">Any</span>], <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">hid</span> = obj[<span style="color:#f1fa8c">&#34;hid&#34;</span>] <span style="color:#ff79c6">as</span>? <span style="color:#8be9fd;font-style:italic">String</span> {
+                hidList.append(hid)
+            }
+        }
+        <span style="color:#6272a4">// 出售</span>
+        <span style="color:#ff79c6">if</span> objind == <span style="color:#f1fa8c">&#34;S&#34;</span> {
+            <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">sb</span> = UIStoryboard(name: <span style="color:#f1fa8c">&#34;RKYItemSearchStoryboard&#34;</span>, bundle: <span style="color:#ff79c6">nil</span>)
+            <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">vc</span> = sb.instantiateViewController(withIdentifier: <span style="color:#f1fa8c">&#34;itemListController&#34;</span>) <span style="color:#ff79c6">as</span>! RKYItemListController
+            vc.hidList = hidList
+            vc.objind = objind
+            <span style="color:#ff79c6">self</span>.setReturnBtnText(<span style="color:#f1fa8c">&#34;&#34;</span>)
+            <span style="color:#ff79c6">self</span>.navigationController?.pushViewController(vc, animated: <span style="color:#ff79c6">true</span>)
+        } <span style="color:#ff79c6">else</span> {
+            <span style="color:#6272a4">// 出租</span>
+            <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">vc</span> = RKYItemListRentController(nibName: <span style="color:#ff79c6">nil</span>, bundle: <span style="color:#ff79c6">nil</span>)
+            vc.hidList = hidList
+            vc.objind = objind
+            <span style="color:#ff79c6">self</span>.setReturnBtnText(<span style="color:#f1fa8c">&#34;&#34;</span>)
+            <span style="color:#ff79c6">self</span>.navigationController?.pushViewController(vc, animated: <span style="color:#ff79c6">true</span>)
+        }
+    }
+}
+</code></pre></div><h2 id="cgcontextref">
+  CGContextRef
+  <a class="heading-link" href="#cgcontextref">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ul>
+<li>drawing circle</li>
+</ul>
+<p>CGContextRef = 0x0</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "instacoding" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2021 -
+    
+    2022
+     pqteru 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
+    
+
+    
+      
+        
+        <script src="/js/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="></script>
+      
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-39516340-6', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

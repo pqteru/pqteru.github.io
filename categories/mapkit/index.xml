@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mapkit on InstaCoding</title>
+    <link>https://pqteru.github.io/categories/mapkit/</link>
+    <description>Recent content in mapkit on InstaCoding</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 29 Apr 2021 09:43:39 +0800</lastBuildDate><atom:link href="https://pqteru.github.io/categories/mapkit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MapKit</title>
+      <link>https://pqteru.github.io/posts/2021-04-29-mapkit/</link>
+      <pubDate>Thu, 29 Apr 2021 09:43:39 +0800</pubDate>
+      
+      <guid>https://pqteru.github.io/posts/2021-04-29-mapkit/</guid>
+      <description>MapKit  是從 iOS 3+ 之後就有的 framework，主要是用來顯示、搜尋地圖並可客製化標記的功能
+ MKMapView 地圖 View MKMapItem 地圖上標點 Map SwiftUI 地圖 View  Annotating a Map with Custom Data    https://developer.apple.com/documentation/mapkit/mapkit_annotations/annotating_a_map_with_custom_data
+Annotate a map with location-specific data using default and customized annotation views and callouts.
+MKAnnotation    https://developer.apple.com/documentation/mapkit/mkannotation
+An object that adopts this protocol manages the data that you want to display on the map surface. It does not provide the visual representation displayed by the map.</description>
+    </item>
+    
+  </channel>
+</rss>
