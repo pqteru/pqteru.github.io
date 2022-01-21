@@ -1,174 +1,106 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://pqteru.github.io/authors/</loc>
     <lastmod>2022-01-18T10:04:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/categories/</loc>
     <lastmod>2022-01-18T10:04:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/authors/david/</loc>
     <lastmod>2022-01-18T10:04:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/docker/</loc>
     <lastmod>2022-01-18T10:04:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/categories/docker/</loc>
     <lastmod>2022-01-18T10:04:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/posts/2022-01-18-difference-in-docker-image/</loc>
     <lastmod>2022-01-18T10:04:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/image/</loc>
     <lastmod>2022-01-18T10:04:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/</loc>
     <lastmod>2022-01-18T10:04:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/posts/</loc>
     <lastmod>2022-01-18T10:04:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/</loc>
     <lastmod>2022-01-18T10:04:17+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/swift/</loc>
     <lastmod>2021-02-24T14:16:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/categories/webkit/</loc>
     <lastmod>2021-02-24T14:16:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/</loc>
     <lastmod>2021-02-24T14:16:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/wkwebview/</loc>
     <lastmod>2021-02-24T14:16:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/posts/2021-02-18-macos-m1-terminal/</loc>
     <lastmod>2021-02-18T18:32:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/homebrew/</loc>
     <lastmod>2021-02-18T18:32:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/m1/</loc>
     <lastmod>2021-02-18T18:32:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/categories/terminal/</loc>
     <lastmod>2021-02-18T18:32:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/zsh/</loc>
     <lastmod>2021-02-18T18:32:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/subscripts/</loc>
     <lastmod>2021-01-26T21:37:19+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/categories/swift-docs/</loc>
     <lastmod>2021-01-26T21:37:19+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/posts/2021-01-26-swift-subscripts/</loc>
     <lastmod>2021-01-26T21:37:19+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/functions/</loc>
     <lastmod>2021-01-22T17:21:09+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/posts/2021-01-22-swift-functions/</loc>
     <lastmod>2021-01-22T17:21:09+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/property/</loc>
     <lastmod>2021-01-18T10:10:08+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/posts/2021-01-18-swift-properties/</loc>
     <lastmod>2021-01-18T10:10:08+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/class/</loc>
     <lastmod>2021-01-17T09:37:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/struct/</loc>
     <lastmod>2021-01-17T09:37:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/posts/2021-01-17-struct-vs-class-in-swift/</loc>
     <lastmod>2021-01-17T09:37:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/categories/blog/</loc>
     <lastmod>2021-01-08T18:29:01+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/golang/</loc>
     <lastmod>2021-01-08T18:29:01+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/tags/hugo/</loc>
     <lastmod>2021-01-08T18:29:01+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/posts/2021-01-08-hugo-blog/</loc>
     <lastmod>2021-01-08T18:29:01+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pqteru.github.io/series/</loc>
   </url>
-  
 </urlset>

@@ -26,9 +26,10 @@ brew install hugo hugo version # 確認版本 Step 2: 建立一個新的網站  
  安裝 Installation  Step 1: 安裝 Hugo Step 2: 建立一個新的網站 Step 3: 加入一個 theme Step 4: 開始我們第一篇文章 Step 5: 啟動 Hugo server Step 6: 客製化版型及設定 Step 7: 產生靜態網頁   Hosting on GitHub Pages 寫 script 來自動化執行更新    安裝 Installation    Step 1: 安裝 Hugo    如果是 mac 的使用者，可以透過 homebrew  來安裝 hugo
 brew install hugo hugo version # 確認版本 Step 2: 建立一個新的網站    hugo new site sitename # 替代 sitename 為自己想要的名字 Step 3: 加入一個 theme    Hugo 可以客製自己想要的版型，這邊 有非常多的版型可以挑選，找到喜歡的版型之後可以透過 git submodule 來加入版型的模組，若之後有更新的版本可以直接透過 submodule 來 update 版本" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://pqteru.github.io/posts/2021-01-08-hugo-blog/" />
+<meta property="og:url" content="https://pqteru.github.io/posts/2021-01-08-hugo-blog/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-01-08T18:29:01+08:00" />
 <meta property="article:modified_time" content="2021-01-08T18:29:01+08:00" />
+
 
 
     <title>
@@ -44,7 +45,7 @@ brew install hugo hugo version # 確認版本 Step 2: 建立一個新的網站  
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -67,7 +68,7 @@ brew install hugo hugo version # 確認版本 Step 2: 建立一個新的網站  
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.0" />
   </head>
 
   
@@ -198,7 +199,7 @@ brew install hugo hugo version # 確認版本 Step 2: 建立一個新的網站  
 <p>如果是 mac 的使用者，可以透過 <a href="https://brew.sh/index_zh-tw" target="_blank">
     homebrew
 </a> 來安裝 hugo</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install hugo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install hugo
 hugo version <span style="color:#6272a4"># 確認版本</span>
 </code></pre></div><h3 id="step-2-建立一個新的網站">
   Step 2: 建立一個新的網站
@@ -206,7 +207,7 @@ hugo version <span style="color:#6272a4"># 確認版本</span>
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new site sitename <span style="color:#6272a4"># 替代 sitename 為自己想要的名字</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new site sitename <span style="color:#6272a4"># 替代 sitename 為自己想要的名字</span>
 </code></pre></div><h3 id="step-3-加入一個-theme">
   Step 3: 加入一個 theme
   <a class="heading-link" href="#step-3-%e5%8a%a0%e5%85%a5%e4%b8%80%e5%80%8b-theme">
@@ -216,7 +217,7 @@ hugo version <span style="color:#6272a4"># 確認版本</span>
 <p>Hugo 可以客製自己想要的版型，<a href="https://themes.gohugo.io/" target="_blank">
     這邊
 </a>有非常多的版型可以挑選，找到喜歡的版型之後可以透過 <code>git submodule</code> 來加入版型的模組，若之後有更新的版本可以直接透過 submodule 來 update 版本</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8be9fd;font-style:italic">cd</span> sitename
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8be9fd;font-style:italic">cd</span> sitename
 git init
 git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 </code></pre></div><h3 id="step-4-開始我們第一篇文章">
@@ -226,9 +227,9 @@ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/anan
   </a>
 </h3>
 <p>Hugo 提供指令可以直接產生一篇文章框架</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new posts/my-first-post.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new posts/my-first-post.md
 </code></pre></div><p>範例：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">---
 title: &#34;My First Post&#34;
 date: 2021-01-16T09:56:12+08:00
 draft: true
@@ -240,9 +241,9 @@ draft: true
   </a>
 </h3>
 <p>直接在本地端啟動 server 來看成果如何</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server -D
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server -D
 </code></pre></div><p>應該會看到類似以下面結果顯示</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Start building sites …
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Start building sites …
 
                    | EN
 -------------------+-----
@@ -271,7 +272,7 @@ Press Ctrl+C to stop
   </a>
 </h3>
 <p>在編輯器開啟 <code>config.toml</code> 檔案，填入最基本的設定</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8be9fd;font-style:italic">baseURL</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;https://example.org/&#34;</span> <span style="color:#6272a4"># 替代成自己的網域，如果是放在 Github Pages 的話，就會是 `&lt;USERNAME&gt;.github.io`</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8be9fd;font-style:italic">baseURL</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;https://example.org/&#34;</span> <span style="color:#6272a4"># 替代成自己的網域，如果是放在 Github Pages 的話，就會是 `&lt;USERNAME&gt;.github.io`</span>
 <span style="color:#8be9fd;font-style:italic">languageCode</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;en-us&#34;</span> <span style="color:#6272a4"># 預設為 en-us 若是中文可改成 zh-tw</span>
 <span style="color:#8be9fd;font-style:italic">title</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;My New Hugo Site&#34;</span> <span style="color:#6272a4"># 網站名稱</span>
 <span style="color:#8be9fd;font-style:italic">theme</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ananke&#34;</span> <span style="color:#6272a4"># 使用的版型</span>
@@ -282,7 +283,7 @@ Press Ctrl+C to stop
   </a>
 </h3>
 <p>最後就是讓 hugo 來產生出靜態網頁，預設會產生一個 <code>public</code> 的 folder，裡面就會放我們在本機上看到的網頁所需要的靜態檔案，通常就是一堆 html, css, js 檔案等</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo -D 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo -D 
 <span style="color:#6272a4"># -D, --buildDrafts include content marked as draft</span>
 </code></pre></div><p><a href="https://gohugo.io/commands/hugo/" target="_blank">
     hugo command
@@ -307,9 +308,9 @@ Press Ctrl+C to stop
 <blockquote>
 <p>如果已經存在 <code>public</code> 目錄的話，需要先把它刪除 <code>rm -rf public</code></p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule add -b main https://github.com/pqteru/pqteru.github.io.git public
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule add -b main https://github.com/pqteru/pqteru.github.io.git public
 </code></pre></div><p>檢測我們目前的設定是否有兩個 submodules</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule status
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule status
 
 <span style="color:#6272a4"># output</span>
 <span style="color:#6272a4"># 360acf1b71db6fa3f500161d1f0e8e8d345499a2 public (heads/main) // 指向 `&lt;USERNAME&gt;.github.io` repo</span>
@@ -326,7 +327,7 @@ Press Ctrl+C to stop
   </a>
 </h2>
 <p>直接在專案內建立一支 <code>deploy.sh</code> 的 script，把權限設定為可執行權限 <code>chmod +x deploy.sh</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ff79c6">#!/bin/sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ff79c6">#!/bin/sh
 </span><span style="color:#ff79c6"></span>
 <span style="color:#6272a4"># If a command fails then the deploy stops</span>
 <span style="color:#8be9fd;font-style:italic">set</span> -e
@@ -352,7 +353,7 @@ git commit -m <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd
 <span style="color:#6272a4"># Push source and build repos.</span>
 git push origin main
 </code></pre></div><p>在終端機上執行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./deploy.sh <span style="color:#f1fa8c">&#34;Your optional commit message&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./deploy.sh <span style="color:#f1fa8c">&#34;Your optional commit message&#34;</span>
 </code></pre></div><p>會把更新的 commits 直接 push 到 <code>&lt;USERNAME&gt;.github.io</code> repo 上，因為我們有兩個 repo，這支 script 只更新 <code>public</code> 這個 submodule repo，自己專案 <code>&lt;YOUR-PROJECT&gt;</code> 的 repo 也別忘了 commit &amp; update 囉</p>
 <p>大功告成，最後直接連線到 <code>https://&lt;USERNAME&gt;.github.io</code> 就能看到我們的部落格了，如果網站尚未更新，有可能是瀏覽器的 cache 可以開無痕模式或清空 cache 來檢視。</p>
 
@@ -411,7 +412,7 @@ git push origin main
 
     
       
-      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
+      <script src="/js/coder.min.39a51230dce2ac866c049b52573e38bf60666af4bc63c1bdf203b9b2d95b1cd6.js" integrity="sha256-OaUSMNzirIZsBJtSVz44v2BmavS8Y8G98gO5stlbHNY="></script>
     
 
     
@@ -434,7 +435,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

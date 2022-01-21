@@ -26,9 +26,10 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
 WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個開啟網頁的 view，除了一般的 load(_:), reload(), goBack(_:), goForward(_:), estimatedProgress 等等之外，還可以做一些設定跟進階判斷：
  可設定 WKWebViewConfiguration  做更細部的設定 可實作 WKUIDelegate  來實現 JS 在瀏覽器網頁的功能  實現 JS alert, confirm, prompt 實作 target = _blank (另開分頁) 功能   規範 webview 的 WKNavigationDelegate  自訂是否要允許或拒絕導航目標 URL 的政策。  自訂導航政策 決策 URL 是開啟原生畫面或 webview    初始化 WKWebView    import UIKit import WebKit class ViewController: UIViewController, WKUIDelegate { var webView: WKWebView!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/" />
+<meta property="og:url" content="https://pqteru.github.io/posts/2021-02-24-webkit-wkwebview/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-02-24T14:16:29+08:00" />
 <meta property="article:modified_time" content="2021-02-24T14:16:29+08:00" />
+
 
 
     <title>
@@ -44,7 +45,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -67,7 +68,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.0" />
   </head>
 
   
@@ -192,7 +193,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">import</span> <span style="color:#50fa7b">UIKit</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">import</span> <span style="color:#50fa7b">UIKit</span>
 <span style="color:#8be9fd;font-style:italic">import</span> <span style="color:#50fa7b">WebKit</span>
 
 <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">ViewController</span>: UIViewController, WKUIDelegate {
@@ -235,7 +236,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
   </a>
 </h3>
 <p>Web 很常使用到 js 的 alert, confirm 或是 prompt 的功能，但無法觸發，因為 WKWebView 把這些事件攔截下來，傳入這個 delegate 中，讓開發者使用 App 的原生元件來進行控制</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#6272a4">// 跳出視窗
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#6272a4">// 跳出視窗
 </span><span style="color:#6272a4"></span>alert(<span style="color:#f1fa8c">&#34;hello world&#34;</span>);
 
 <span style="color:#6272a4">// confirm 確認訊息
@@ -250,7 +251,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(<span style="color:#ff79c6">_</span> webView: WKWebView, runJavaScriptAlertPanelWithMessage message: <span style="color:#8be9fd;font-style:italic">String</span>, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -&gt; <span style="color:#8be9fd;font-style:italic">Void</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(<span style="color:#ff79c6">_</span> webView: WKWebView, runJavaScriptAlertPanelWithMessage message: <span style="color:#8be9fd;font-style:italic">String</span>, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -&gt; <span style="color:#8be9fd;font-style:italic">Void</span>) {
     <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">alertController</span> = UIAlertController(title: <span style="color:#ff79c6">nil</span>, message: message, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: <span style="color:#f1fa8c">&#34;確定&#34;</span>, style: .<span style="color:#ff79c6">default</span>, handler: <span style="color:#ff79c6">nil</span>))
     <span style="color:#ff79c6">self</span>.present(alertController, animated: <span style="color:#ff79c6">true</span>, completion: <span style="color:#ff79c6">nil</span>)
@@ -262,7 +263,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// `completionHandler()` 帶 `true` 的話等是確定(OK), 帶 `false` 則是取消(Cancel)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// `completionHandler()` 帶 `true` 的話等是確定(OK), 帶 `false` 則是取消(Cancel)</span>
 <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(<span style="color:#ff79c6">_</span> webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: <span style="color:#8be9fd;font-style:italic">String</span>, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (<span style="color:#8be9fd;font-style:italic">Bool</span>) -&gt; <span style="color:#8be9fd;font-style:italic">Void</span>) {
     <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">alertController</span> = UIAlertController(title: <span style="color:#ff79c6">nil</span>, message: message, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: <span style="color:#f1fa8c">&#34;確定&#34;</span>, style: .<span style="color:#ff79c6">default</span>, handler: { (action) <span style="color:#ff79c6">in</span>
@@ -279,7 +280,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// webView(_:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// webView(_:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:)</span>
 <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(<span style="color:#ff79c6">_</span> webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: <span style="color:#8be9fd;font-style:italic">String</span>, defaultText: <span style="color:#8be9fd;font-style:italic">String</span>?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (<span style="color:#8be9fd;font-style:italic">String</span>?) -&gt; <span style="color:#8be9fd;font-style:italic">Void</span>) {
     <span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#8be9fd;font-style:italic">alertController</span> = UIAlertController(title: <span style="color:#ff79c6">nil</span>, message: prompt, preferredStyle: .alert)
     <span style="color:#6272a4">// 在 alertController 上加入一個 TextField</span>
@@ -307,7 +308,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
 <p>可實作 <a href="%28https://developer.apple.com/documentation/webkit/wkuidelegate/1536907-webview%29">
     webView(_:createWebViewWith:for:windowFeatures:)
 </a> 來判斷 web 的 <code>target = _blank</code> (另開分頁) ，接著可以自行決定是要透過原本的 webview 來繼續瀏覽目標網頁或是再另外 present 一個 view 出來</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// WKNavigationDelegate</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// WKNavigationDelegate</span>
 <span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(webView: WKWebView!, createWebViewWithConfiguration configuration: WKWebViewConfiguration!, forNavigationAction navigationAction: WKNavigationAction!, windowFeatures: WKWindowFeatures!) -&gt; WKWebView! {
     <span style="color:#6272a4">// 判斷 targetFrame 是否等於 nil，若是則為另開分頁</span>
     <span style="color:#ff79c6">if</span> navigationAction.targetFrame == <span style="color:#ff79c6">nil</span> {
@@ -340,7 +341,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
   </a>
 </h3>
 <p>假設有個情境是透過點擊連結之後判斷是否要由 native app 開啟或由 webview 或由 Safari browser 來開啟頁面，如果遇到自家的網域時可以開啟原生畫面，其他則是開啟 webview 或 browser</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// 可先定義一個 open url type 的 enum</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#6272a4">// 可先定義一個 open url type 的 enum</span>
 <span style="color:#8be9fd;font-style:italic">enum</span> <span style="color:#50fa7b">OpenUrlType</span> {
     <span style="color:#6272a4">/// 原生頁面</span>
     <span style="color:#ff79c6">case</span> native
@@ -350,7 +351,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
     <span style="color:#ff79c6">case</span> browser
 }
 </code></pre></div><p>決定開啟的方式</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(<span style="color:#ff79c6">_</span> webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: ((WKNavigationActionPolicy) -&gt; <span style="color:#8be9fd;font-style:italic">Void</span>)) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">webView</span>(<span style="color:#ff79c6">_</span> webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: ((WKNavigationActionPolicy) -&gt; <span style="color:#8be9fd;font-style:italic">Void</span>)) {
     ...
     <span style="color:#6272a4">// 可透過 switch 判斷 navigationType .linkActivated 或 .other 等等</span>
     <span style="color:#ff79c6">switch</span> navigationAction.navigationType {
@@ -454,7 +455,7 @@ WKWebView  是 WebKit 的一個內建元件，可在原生 App 裡內嵌一個�
 
     
       
-      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
+      <script src="/js/coder.min.39a51230dce2ac866c049b52573e38bf60666af4bc63c1bdf203b9b2d95b1cd6.js" integrity="sha256-OaUSMNzirIZsBJtSVz44v2BmavS8Y8G98gO5stlbHNY="></script>
     
 
     
@@ -477,7 +478,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

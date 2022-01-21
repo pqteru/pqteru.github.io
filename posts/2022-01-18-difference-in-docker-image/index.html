@@ -26,9 +26,10 @@ Stretch/Buster/Jessie    這些名字其實是代表 Debian Release  的版本�
  Version and latest Stretch/Buster/Jessie  -slim -alpine -windowsservercore   結論：有選擇障礙怎麼辦？ 查看各個 image 的 size    Version and latest    通常就是冒號之後帶上版本，如 python:3.10.1，這也是官方推的正式版本，檔案通常比較大，如果不確定要使用哪個安裝這個就對了，最安全支援度也是最廣。盡量不要使用 latest 的 image，因為每次 build 都會拉最新版的下來，可能會遇到很多不可預期的問題，最好是指定一個版本。
 Stretch/Buster/Jessie    這些名字其實是代表 Debian Release  的版本代號，Buster 是 Debian version 10 與衍伸的代號，Stretch 是版本 9，Jessie 則是版本 8 的代號。開發中的代號是 Bullseye 跟 Bookworm。端看使用環境來選擇相對的版本。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://pqteru.github.io/posts/2022-01-18-difference-in-docker-image/" />
+<meta property="og:url" content="https://pqteru.github.io/posts/2022-01-18-difference-in-docker-image/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-18T10:04:17+08:00" />
 <meta property="article:modified_time" content="2022-01-18T10:04:17+08:00" />
+
 
 
     <title>
@@ -44,7 +45,7 @@ Stretch/Buster/Jessie    這些名字其實是代表 Debian Release  的版本�
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.843ee18d510f7cb1bb49110db117b99ea65489c095d620a5d79ea71693478e77.css" integrity="sha256-hD7hjVEPfLG7SRENsRe5nqZUicCV1iCl156nFpNHjnc=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -67,7 +68,7 @@ Stretch/Buster/Jessie    這些名字其實是代表 Debian Release  的版本�
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.0" />
   </head>
 
   
@@ -242,7 +243,7 @@ Stretch/Buster/Jessie    這些名字其實是代表 Debian Release  的版本�
   </a>
 </h2>
 <p>可以把每個各種不同的版本 pull 下來看看 size</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull --quiet python:3.10.1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull --quiet python:3.10.1
 docker pull --quiet python:3.10.1-buster
 docker pull --quiet python:3.10.1-slim
 docker pull --quiet python:3.10.1-alpine
@@ -303,7 +304,7 @@ docker images
 
     
       
-      <script src="/js/coder.min.8ddd58e878760346f67d56a123af8e6fd8dde1bc0903de1fc025ae84b4cf686f.js" integrity="sha256-jd1Y6Hh2A0b2fVahI6&#43;Ob9jd4bwJA94fwCWuhLTPaG8="></script>
+      <script src="/js/coder.min.39a51230dce2ac866c049b52573e38bf60666af4bc63c1bdf203b9b2d95b1cd6.js" integrity="sha256-OaUSMNzirIZsBJtSVz44v2BmavS8Y8G98gO5stlbHNY="></script>
     
 
     
@@ -326,7 +327,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 
